@@ -1,109 +1,156 @@
 # Flutter 百科教學範例專案
 
-這是一個用來學習現代 Flutter 開發的百科型範例專案。目標是往官方 Flutter samples 的品質靠攏：每個範例都能清楚說明一個主題，程式碼保持可讀、可測、可擴充，文件與實作同步。
+這是一個以「官方 Flutter samples 品質」為目標的 Flutter 學習型範例專案。它不是單一 demo，也不是完整商業產品，而是一個可以照順序閱讀、對照程式碼、理解架構、練習測試的 Flutter 知識庫。
 
-> 注意：這台電腦目前無法安裝 Flutter，因此本 repo 以「靜態可讀、可交給有 Flutter 的環境驗證」為優化方向。
+你可以把這個 repo 當成：
 
----
+- Flutter / Dart 入門教材
+- 現代 Flutter app 架構範例
+- feature-first + MVVM + Repository 的實作參考
+- Riverpod、Dio、go_router、Material 3、SharedPreferences 的整合範例
+- 沒有本機 Flutter 環境時，透過 GitHub Actions 驗證的學習專案
 
-## 快速導覽
-
-| 你想做的事 | 從這裡開始 |
-| --- | --- |
-| 照順序學 Flutter | [docs/learning_path.md](./docs/learning_path.md) |
-| 找某個範例 | [docs/sample_index.md](./docs/sample_index.md) |
-| 了解專案架構 | [docs/architecture_overview.md](./docs/architecture_overview.md) |
-| 看 posts 完整 feature | [docs/features/posts.md](./docs/features/posts.md) |
-| 學測試策略 | [docs/testing_strategy.md](./docs/testing_strategy.md) |
-| 本機不能裝 Flutter 時怎麼驗證 | [docs/ci_and_environment.md](./docs/ci_and_environment.md) |
-| 新增自己的範例 | [docs/adding_new_samples.md](./docs/adding_new_samples.md) |
-| 查術語 | [docs/glossary.md](./docs/glossary.md) |
-| 排除常見問題 | [docs/troubleshooting.md](./docs/troubleshooting.md) |
-
-完整知識庫入口：[docs/README.md](./docs/README.md)
+> 目前作者這台電腦無法安裝 Flutter，因此本專案採用「本機可閱讀維護、CI 負責 Flutter 驗證」的工作流。
 
 ---
 
-## 專案狀態
+## 30 秒看懂這個專案
 
-- 已整理 `pubspec.yaml`，補齊範例實際使用的 `dio`、`flutter_riverpod`、`go_router`、`shared_preferences`。
-- 已加入 `analysis_options.yaml`，使用官方 `flutter_lints` 規則。
-- 已改用 `MaterialApp.router` 與 `go_router`，路由不再只是註解範例。
-- 已套用全域亮色/深色主題。
-- 已把首頁拆到 `lib/views/home_page.dart`，讓 `main.dart` 保持單純。
-- 已將 posts 範例整理成 `lib/features/posts/`，示範 feature-first + MVVM 分層思路。
-- 已將本地儲存服務改成 `SharedPreferencesAsync` 實作。
-- 已加入 GitHub Actions workflow，讓無法安裝 Flutter 的電腦也能透過 CI 驗證。
+```text
+Flutter-Learning-Sample/
+  README.md                 # GitHub 首頁與快速學習入口
+  PROJECT_STATUS.md          # 目前完成度、限制、下一步
+  docs/                      # 完整知識庫
+    README.md                # 文件總入口
+    learning_path.md         # 從零開始的學習路線
+    sample_index.md          # 所有範例索引
+    architecture_overview.md # 專案架構與資料流
+    lessons/                 # 課程教材
+    features/posts.md        # posts feature 完整 walkthrough
+    testing_strategy.md      # 測試策略
+    governance/              # 維護規範
+  dart_foundation/           # 純 Dart 語法範例
+  lib/
+    core/                    # router、theme
+    services/                # 共用 API / storage service
+    views/                   # 首頁與 UI kit
+    features/posts/          # feature-first + MVVM 範例
+  test/                      # unit / widget tests
+  integration_test/          # integration smoke test
+```
 
-詳細狀態：[PROJECT_STATUS.md](./PROJECT_STATUS.md)
+完整文件入口：[docs/README.md](./docs/README.md)
+
+想快速查「我要學什麼、該看哪裡、下一步去哪」：
+
+- [docs/learning_dashboard.md](./docs/learning_dashboard.md)
+- [docs/blog_learning_journal.md](./docs/blog_learning_journal.md)
 
 ---
 
-## 學習模組
+## 適合誰
 
-### 模組 1：語言基礎
-Flutter 的基石。包含變數、空安全與物件導向的進階用法。
-- 指南：[DART_BASICS_GUIDE.md](./docs/lessons/DART_BASICS_GUIDE.md)
-- 範例：`dart_foundation/`
+- 你剛開始學 Flutter，想知道一個 app 專案通常怎麼組起來。
+- 你已經會寫 Widget，但不熟狀態管理、API、路由、測試。
+- 你想看一個小而完整的 feature-first 範例。
+- 你想建立自己的 Flutter 範例知識庫或教學 repo。
 
-### 模組 2：畫面與佈局
-理解「一切皆 Widget」的哲學與響應式佈局的核心法則。
-- 指南：[FLUTTER_UI_GUIDE.md](./docs/lessons/FLUTTER_UI_GUIDE.md)
-- 範例：`lib/01_basic_widgets.dart`、`lib/03_layout_principles.dart`、`lib/04_responsive_layout.dart`
+不適合的情境：
 
-### 模組 3：UI 元件庫
-開發時必備的「複製貼上」神器。包含按鈕、表單、卡片與對話框。
-- 指南：[UI_COMPONENT_LIBRARY.md](./docs/lessons/UI_COMPONENT_LIBRARY.md)
-- 範例：`lib/views/ui_kit_view.dart`
+- 你正在找可以直接上架的完整產品模板。
+- 你想找大型 enterprise app 的完整 clean architecture 範本。
+- 你需要本機立即 `flutter run`，但你的電腦沒有 Flutter SDK。
 
-### 模組 4：狀態與網路
-使用 Riverpod 管理非同步狀態，使用 Dio 串接 JSONPlaceholder API。
-- 指南：[ADVANCED_STATE_NETWORK.md](./docs/lessons/ADVANCED_STATE_NETWORK.md)
-- 範例：`lib/features/posts/`、`lib/services/api_client.dart`
+---
 
-### 模組 5：路由與導航
-使用 go_router 管理頁面路由，示範 declarative routing 的基本結構。
-- 指南：[ROUTING_NAVIGATION_GUIDE.md](./docs/lessons/ROUTING_NAVIGATION_GUIDE.md)
-- 範例：`lib/core/router.dart`
+## 建議學習路線
 
-### 模組 6：本地儲存與主題
-讓你的 APP 記住用戶設定，並實現專業的深/淺色模式自動切換。
-- 指南：[LOCAL_STORAGE_GUIDE.md](./docs/lessons/LOCAL_STORAGE_GUIDE.md)、[THEME_AND_STYLING_GUIDE.md](./docs/lessons/THEME_AND_STYLING_GUIDE.md)
-- 範例：`lib/core/theme.dart`、`lib/services/storage_service.dart`
+如果你第一次進來，照這個順序讀：
 
-### 模組 7：測試、原生與上架
-突破框架限制調用原生 API、撰寫測試保護代碼，以及雙平台商店上架流程。
-- 指南：[NATIVE_TESTING_DEPLOYMENT.md](./docs/lessons/NATIVE_TESTING_DEPLOYMENT.md)
-- 範例：`test/`
+1. **先看專案地圖**
+   - [docs/README.md](./docs/README.md)
+   - [docs/learning_dashboard.md](./docs/learning_dashboard.md)
+   - [docs/sample_index.md](./docs/sample_index.md)
+   - [PROJECT_STATUS.md](./PROJECT_STATUS.md)
+
+2. **學 Dart 基礎**
+   - [docs/lessons/DART_BASICS_GUIDE.md](./docs/lessons/DART_BASICS_GUIDE.md)
+   - `dart_foundation/`
+
+3. **學 Flutter UI 與 Layout**
+   - [docs/lessons/FLUTTER_UI_GUIDE.md](./docs/lessons/FLUTTER_UI_GUIDE.md)
+   - [docs/lessons/UI_COMPONENT_LIBRARY.md](./docs/lessons/UI_COMPONENT_LIBRARY.md)
+   - `lib/01_basic_widgets.dart`
+   - `lib/03_layout_principles.dart`
+   - `lib/04_responsive_layout.dart`
+
+4. **學 app shell：啟動、路由、主題**
+   - `lib/main.dart`
+   - `lib/core/router.dart`
+   - `lib/core/theme.dart`
+   - [docs/lessons/ROUTING_NAVIGATION_GUIDE.md](./docs/lessons/ROUTING_NAVIGATION_GUIDE.md)
+   - [docs/lessons/THEME_AND_STYLING_GUIDE.md](./docs/lessons/THEME_AND_STYLING_GUIDE.md)
+
+5. **學完整 feature：posts**
+   - [docs/features/posts.md](./docs/features/posts.md)
+   - `lib/features/posts/`
+   - `test/features/posts/`
+
+完整版本見：[docs/learning_path.md](./docs/learning_path.md)
+
+---
+
+## 核心範例
+
+| 主題 | 文件 | 程式碼 |
+| --- | --- | --- |
+| Dart 基礎 | [Dart 基礎指南](./docs/lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` |
+| Flutter UI | [UI 與元件指南](./docs/lessons/FLUTTER_UI_GUIDE.md) | `lib/01_basic_widgets.dart` |
+| UI Kit | [常用 UI 元件庫](./docs/lessons/UI_COMPONENT_LIBRARY.md) | `lib/views/ui_kit_view.dart` |
+| Routing | [路由與導航](./docs/lessons/ROUTING_NAVIGATION_GUIDE.md) | `lib/core/router.dart` |
+| Theme | [主題與視覺設計](./docs/lessons/THEME_AND_STYLING_GUIDE.md) | `lib/core/theme.dart` |
+| Storage | [本地儲存與快取](./docs/lessons/LOCAL_STORAGE_GUIDE.md) | `lib/services/storage_service.dart` |
+| State + Network | [狀態與網路](./docs/lessons/ADVANCED_STATE_NETWORK.md) | `lib/features/posts/` |
+| Testing / Native / Deploy | [測試、原生與上架](./docs/lessons/NATIVE_TESTING_DEPLOYMENT.md) | `test/`, `integration_test/` |
+
+完整索引見：[docs/sample_index.md](./docs/sample_index.md)
 
 ---
 
 ## 專案架構
 
-架構說明：
-
-- [docs/architecture_overview.md](./docs/architecture_overview.md)
-- [docs/governance/official_sample_quality_checklist.md](./docs/governance/official_sample_quality_checklist.md)
+本專案採用「小型教學專案可讀性」與「大型 app 可擴充性」之間的折衷架構：
 
 ```text
 lib/
-  core/       # 路由與主題
-  features/   # feature-first 範例，例如 posts
-  services/   # API 與本地儲存
-  views/      # 頁面與展示畫面
-  main.dart   # app bootstrap
+  core/       # App 全域設定：router、theme
+  services/   # 跨 feature 共用服務：ApiClient、StorageService
+  views/      # 首頁與 UI 展示頁
+  features/
+    posts/
+      domain/        # Post domain model
+      data/          # PostApiService、PostRepository
+      presentation/  # PostListViewModel、PostListView
 ```
+
+posts feature 的資料流：
+
+```text
+PostListView
+  -> PostListViewModel
+  -> PostRepository
+  -> PostApiService
+  -> ApiClient
+  -> JSONPlaceholder API
+```
+
+詳細說明：[docs/architecture_overview.md](./docs/architecture_overview.md)
 
 ---
 
-## 如何使用
+## 如何執行與驗證
 
-1. 先讀 `docs/lessons/DART_BASICS_GUIDE.md` 與 `dart_foundation/`。
-2. 再讀 `docs/lessons/FLUTTER_UI_GUIDE.md`，對照 `lib/01_basic_widgets.dart`。
-3. 接著看 `lib/main.dart`、`lib/core/router.dart`、`lib/views/home_page.dart`，理解 app 如何組起來。
-4. 最後看 `lib/features/posts/` 與 `test/features/posts/`，學習資料流與測試。
-
-在有 Flutter 的環境中可執行：
+在有 Flutter SDK 的環境：
 
 ```bash
 flutter pub get
@@ -112,11 +159,68 @@ flutter test
 flutter run
 ```
 
-CI 驗證位於 `.github/workflows/flutter.yml`，會在 GitHub 上執行 `flutter pub get`、`flutter analyze` 與 `flutter test`。更多環境說明見 [docs/ci_and_environment.md](./docs/ci_and_environment.md)。
-
-純 Dart 範例可在有 Dart SDK 的環境執行：
+純 Dart 範例：
 
 ```bash
 dart run dart_foundation/01_variables_null_safety.dart
 ```
 
+本機無法安裝 Flutter 時：
+
+- 直接閱讀 `docs/` 與 `lib/`。
+- 推到 GitHub 後由 `.github/workflows/flutter.yml` 執行 `flutter analyze` 與 `flutter test`。
+- 詳見 [docs/ci_and_environment.md](./docs/ci_and_environment.md)。
+
+---
+
+## 文件架構
+
+| 文件 | 用途 |
+| --- | --- |
+| [docs/README.md](./docs/README.md) | 知識庫總入口 |
+| [docs/learning_dashboard.md](./docs/learning_dashboard.md) | 查詢式學習儀表板 |
+| [docs/learning_path.md](./docs/learning_path.md) | 從零開始的學習路線 |
+| [docs/sample_index.md](./docs/sample_index.md) | 範例索引 |
+| [docs/architecture_overview.md](./docs/architecture_overview.md) | 架構與資料流 |
+| [docs/features/posts.md](./docs/features/posts.md) | posts feature walkthrough |
+| [docs/testing_strategy.md](./docs/testing_strategy.md) | 測試策略 |
+| [docs/blog_learning_journal.md](./docs/blog_learning_journal.md) | Blog 學習紀錄模板 |
+| [docs/lessons/README.md](./docs/lessons/README.md) | 課程教材入口 |
+| [docs/governance/official_sample_quality_checklist.md](./docs/governance/official_sample_quality_checklist.md) | 官方等級範例檢查表 |
+| [docs/troubleshooting.md](./docs/troubleshooting.md) | 疑難排解 |
+
+---
+
+## 目前狀態
+
+目前已完成：
+
+- Flutter app shell：`ProviderScope`、`MaterialApp.router`、theme、go_router
+- feature-first posts 範例
+- Riverpod AsyncNotifier ViewModel
+- Dio API client
+- SharedPreferencesAsync storage service
+- unit / widget / integration test 範例
+- GitHub Actions Flutter CI
+- 繁體中文教學註解與完整 docs 知識庫
+
+限制：
+
+- 本機目前沒有 Flutter SDK，因此本機無法執行 `flutter analyze` / `flutter test`。
+- 需要依 GitHub Actions 或有 Flutter 的環境確認最終 analyzer/test 結果。
+
+詳細狀態：[PROJECT_STATUS.md](./PROJECT_STATUS.md)
+
+---
+
+## 新增範例的規範
+
+新增 feature 時請遵守：
+
+- 使用 `lib/features/<feature_name>/domain|data|presentation`
+- 補 `docs/features/<feature_name>.md`
+- 補 unit / widget test
+- 更新 [docs/sample_index.md](./docs/sample_index.md)
+- 對重要 class、provider、service、repository、view model 補繁體中文教學註解
+
+完整規範：[docs/adding_new_samples.md](./docs/adding_new_samples.md)

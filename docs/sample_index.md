@@ -2,6 +2,8 @@
 
 本文件列出目前專案中的範例、學習目標、入口檔案與測試位置。
 
+如果你不是要找「範例在哪裡」，而是想查「我現在該學什麼」，請先看 [learning_dashboard.md](learning_dashboard.md)。
+
 ## Dart Foundation
 
 | 主題 | 入口 | 學習目標 |

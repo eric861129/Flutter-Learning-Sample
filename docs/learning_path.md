@@ -8,9 +8,12 @@
 
 - `README.md`
 - `docs/README.md`
+- `docs/learning_dashboard.md`
 - `PROJECT_STATUS.md`
 
 你要先知道這個 repo 是教學範例，不是完整產品。目標是學會 Flutter app 的常見組成：語法、Widget、狀態、資料、路由、主題、儲存、測試與 CI。
+
+如果你中途不知道下一科要讀什麼，回到 `docs/learning_dashboard.md`，用「我想學會」或「我遇到的問題」查下一個入口。
 
 ## Phase 1：Dart 基礎
 
@@ -113,3 +116,16 @@
 
 - 本機不能安裝 Flutter 時，如何靠 GitHub Actions 驗證
 - `flutter analyze` 和 `flutter test` 在 sample 專案中的角色
+
+## Phase 7：整理成 Blog 筆記
+
+閱讀：
+
+- `docs/blog_learning_journal.md`
+- `docs/learning_dashboard.md`
+
+學習重點：
+
+- 把每一個主題整理成「問題、文件、程式入口、理解、測試、下一步」。
+- 讓 Blog 文章不是單純筆記，而是可以帶讀者一起走過這個 repo。
+- 每篇文章最後都要留下下一個學習主題，形成連續學習路線。

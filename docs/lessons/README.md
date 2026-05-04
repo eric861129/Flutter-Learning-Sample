@@ -2,6 +2,8 @@
 
 這裡放從根目錄整理進來的教學型 Markdown。根目錄保留入口與狀態文件，完整教材集中在 `docs/lessons/`。
 
+如果你不知道現在該讀哪一份教材，先回到 [../learning_dashboard.md](../learning_dashboard.md)，用學習目標或問題查入口。
+
 ## 教材清單
 
 - [Dart 基礎編程指南](DART_BASICS_GUIDE.md)
