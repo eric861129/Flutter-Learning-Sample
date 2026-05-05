@@ -107,8 +107,10 @@ Flutter-Learning-Sample/
 | 主題 | 文件 | 程式碼 |
 | --- | --- | --- |
 | Dart 基礎 | [Dart 基礎指南](./docs/lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` |
+| Widget 心智模型 | [Everything is a Widget](./docs/lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` |
 | Flutter UI | [UI 與元件指南](./docs/lessons/FLUTTER_UI_GUIDE.md) | `lib/01_basic_widgets.dart` |
 | UI Kit | [常用 UI 元件庫](./docs/lessons/UI_COMPONENT_LIBRARY.md) | `lib/views/ui_kit_view.dart` |
+| Form | [表單與驗證指南](./docs/lessons/FORM_VALIDATION_GUIDE.md) | `lib/features/profile_form/` |
 | Routing | [路由與導航](./docs/lessons/ROUTING_NAVIGATION_GUIDE.md) | `lib/core/router.dart` |
 | Theme | [主題與視覺設計](./docs/lessons/THEME_AND_STYLING_GUIDE.md) | `lib/core/theme.dart` |
 | Storage / Settings | [本地儲存與快取](./docs/lessons/LOCAL_STORAGE_GUIDE.md) | `lib/features/settings/` |
@@ -185,6 +187,7 @@ dart run dart_foundation/01_variables_null_safety.dart
 | [docs/learning_path.md](./docs/learning_path.md) | 從零開始的學習路線 |
 | [docs/sample_index.md](./docs/sample_index.md) | 範例索引 |
 | [docs/architecture_overview.md](./docs/architecture_overview.md) | 架構與資料流 |
+| [docs/features/profile_form.md](./docs/features/profile_form.md) | profile form feature walkthrough |
 | [docs/features/posts.md](./docs/features/posts.md) | posts feature walkthrough |
 | [docs/features/settings.md](./docs/features/settings.md) | settings feature walkthrough |
 | [docs/testing_strategy.md](./docs/testing_strategy.md) | 測試策略 |

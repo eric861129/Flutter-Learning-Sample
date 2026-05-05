@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
               _LearningItem('03 佈局原理', '/layout'),
               _LearningItem('04 響應式佈局', '/responsive'),
               _LearningItem('UI 元件庫', '/ui-kit'),
+              _LearningItem('Form 表單驗證', '/profile-form'),
             ],
           ),
           _buildSection(

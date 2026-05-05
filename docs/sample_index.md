@@ -24,6 +24,7 @@
 | Layout constraints | `lib/03_layout_principles.dart` | Constraints go down, sizes go up, parent sets position |
 | Responsive layout | `lib/04_responsive_layout.dart` | `LayoutBuilder` 與寬窄版型 |
 | UI Kit | `lib/views/ui_kit_view.dart` | 常用 Material 3 元件組合 |
+| Form validation | `lib/features/profile_form/` | `Form`、`TextFormField`、validator、submit loading、error display |
 
 對應教材：
 
@@ -49,6 +50,7 @@
 | Feature | 入口 | 測試 | 學習目標 |
 | --- | --- | --- | --- |
 | Posts | `lib/features/posts/` | `test/features/posts/` | feature-first、Repository、ViewModel、AsyncValue、fake repository widget test |
+| Profile Form | `lib/features/profile_form/` | `test/features/profile_form/` | Form、validator、submit loading state、error display |
 | Settings | `lib/features/settings/` | `test/features/settings/` | SharedPreferences、ThemeMode、使用者偏好設定、app shell state |
 
 對應教材：[進階狀態管理與網路串接](lessons/ADVANCED_STATE_NETWORK.md)

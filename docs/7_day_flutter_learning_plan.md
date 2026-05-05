@@ -12,6 +12,22 @@
 4. 做一題「最小修改練習」。
 5. 用 [blog_learning_journal.md](blog_learning_journal.md) 記錄今天學到什麼。
 
+## 我的學習地圖：從語法到文件
+
+這七天的學習順序會跟著三個階段前進。
+
+### 1. 語法先行：Dart 的基本功
+
+Flutter 使用的是 Dart。即使你有 C# 和 JavaScript 的背景，Dart 的非同步處理、Mixins、強型別、null safety 仍需要先對齊。Day 1 會先補這個地基。
+
+### 2. 概念突破：一切皆 Widget
+
+在 Flutter 的世界裡，「Everything is a Widget」。Day 2 會先理解 Widget tree、StatelessWidget、StatefulWidget，再進入 layout、UI kit 和表單。
+
+### 3. AI 輔助文件：我的專屬助教
+
+本專案會把程式碼、架構文件、繁體中文註解、練習題與常見雷點放在一起。你可以把 AI 當成 24 小時在線的助教，用它來解釋每一段程式碼的設計意圖，並把學習過程整理成 Blog。
+
 ## Day 1：Dart 基礎與 Null Safety
 
 目標：先理解 Flutter 背後的語言基礎。
@@ -47,8 +63,10 @@
 
 閱讀：
 
+- [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md)
 - [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)
 - [lessons/UI_COMPONENT_LIBRARY.md](lessons/UI_COMPONENT_LIBRARY.md)
+- [lessons/FORM_VALIDATION_GUIDE.md](lessons/FORM_VALIDATION_GUIDE.md)
 
 對照程式碼：
 
@@ -56,20 +74,25 @@
 - `lib/03_layout_principles.dart`
 - `lib/04_responsive_layout.dart`
 - `lib/views/ui_kit_view.dart`
+- `lib/features/profile_form/`
 
 今天要能回答：
 
+- 「Everything is a Widget」代表什麼？
 - `StatelessWidget` 和 `StatefulWidget` 的差別是什麼？
 - 為什麼 Flutter layout 不是單純用 CSS 那套邏輯？
 - `Row` / `Column` overflow 時應該怎麼查？
+- 表單欄位錯誤和 submit error 差在哪裡？
 
 最小練習：
 
-- 在 UI kit 新增一個常用元件區塊，例如 dropdown、segmented button 或 form input。
+- 在 Profile Form 新增一個手機欄位，並補 validator。
 
 常見雷點：
 
+- 看 Flutter code 時只看到巢狀括號，沒有先把它轉成 Widget tree。
 - 用固定寬高硬排 UI，導致小螢幕、橫向、字體放大時爆版。
+- 只用 `TextField` 做表單，忘了 `Form` 和 `validator` 才能系統性處理欄位錯誤。
 
 ## Day 3：App Shell、Router 與 Theme
 

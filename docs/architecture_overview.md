@@ -38,6 +38,15 @@ Flutter-Learning-Sample/
         presentation/
           post_list_view.dart
           post_list_view_model.dart
+      profile_form/
+        data/
+          profile_form_repository.dart
+        domain/
+          profile_form_data.dart
+        presentation/
+          profile_form_validators.dart
+          profile_form_view.dart
+          profile_form_view_model.dart
       settings/
         data/
           settings_repository.dart
@@ -96,6 +105,16 @@ SettingsView
   -> MyApp applies ThemeMode
 ```
 
+Profile Form feature 的資料流：
+
+```text
+ProfileFormView
+  -> Form validators
+  -> ProfileFormViewModel
+  -> ProfileFormRepository
+  -> submit success/error state
+```
+
 回傳方向：
 
 ```text
@@ -118,6 +137,8 @@ JSON
 - tests 如何用 fake repository 驗證行為
 
 `features/settings/` 示範另一種常見 feature：資料不來自 API，而是來自本地偏好設定。它仍然使用同樣分層，讓初學者理解 feature-first 不只適用於網路資料。
+
+`features/profile_form/` 示範表單互動：欄位驗證留在 presentation helper，送出流程交給 ViewModel，資料送出細節交給 Repository。
 
 ## 什麼時候新增 use case
 

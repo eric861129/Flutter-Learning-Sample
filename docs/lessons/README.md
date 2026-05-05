@@ -7,8 +7,10 @@
 ## 教材清單
 
 - [Dart 基礎編程指南](DART_BASICS_GUIDE.md)
+- [Widget 心智模型：Everything is a Widget](WIDGET_MENTAL_MODEL.md)
 - [Flutter UI 與元件指南](FLUTTER_UI_GUIDE.md)
 - [Flutter 常用 UI 元件庫](UI_COMPONENT_LIBRARY.md)
+- [表單與驗證指南](FORM_VALIDATION_GUIDE.md)
 - [進階狀態管理與網路串接](ADVANCED_STATE_NETWORK.md)
 - [路由與導航指南](ROUTING_NAVIGATION_GUIDE.md)
 - [本地儲存與快取指南](LOCAL_STORAGE_GUIDE.md)

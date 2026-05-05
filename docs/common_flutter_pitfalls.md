@@ -20,12 +20,14 @@
 
 常見雷點：
 
+- 看到很多巢狀括號就迷路，沒有先畫成 Widget tree。
 - `Row` 裡放太長文字導致 overflow。
 - 用固定高度硬排所有元件。
 - 不知道 `Expanded`、`Flexible`、`SingleChildScrollView` 何時使用。
 
 建議：
 
+- 先讀 [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md)。
 - 先讀 [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)。
 - 版面爆掉時先找 constraints，不要急著亂包 widget。
 - 避免用固定高度處理動態文字。
@@ -43,6 +45,21 @@
 - 先讀 [features/posts.md](features/posts.md)。
 - View 只負責呈現與轉交事件。
 - ViewModel 管 UI state，Repository 管資料來源。
+
+## Form 與 Validation
+
+常見雷點：
+
+- 用 `TextField` 做完整表單，最後所有驗證都塞在 submit button 裡。
+- validator、submit loading、server error 混在同一段 Widget code。
+- 送出失敗只印 console，使用者看不到錯誤。
+
+建議：
+
+- 先讀 [features/profile_form.md](features/profile_form.md)。
+- 欄位錯誤交給 validator。
+- submit loading / success / error 交給 ViewModel state。
+- server 或 repository 錯誤要顯示在畫面上的 error display。
 
 ## Router
 

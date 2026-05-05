@@ -20,6 +20,9 @@
 - `test/features/posts/presentation/post_list_view_model_test.dart`
 - `test/features/settings/data/settings_repository_test.dart`
 - `test/features/settings/presentation/settings_view_model_test.dart`
+- `test/features/profile_form/data/profile_form_repository_test.dart`
+- `test/features/profile_form/presentation/profile_form_validators_test.dart`
+- `test/features/profile_form/presentation/profile_form_view_model_test.dart`
 
 ### Widget Test
 
@@ -35,6 +38,7 @@
 - `test/widget_test.dart`
 - `test/features/posts/presentation/post_list_view_test.dart`
 - `test/features/settings/presentation/settings_view_test.dart`
+- `test/features/profile_form/presentation/profile_form_view_test.dart`
 
 本專案目前使用輕量 snapshot-style 檢查，而不是 golden file：
 

@@ -33,24 +33,31 @@
 - `Future` / `Stream`
 - sealed class 與 pattern matching
 
-## Phase 2：Flutter UI 與 Layout
+## Phase 2：概念突破：一切皆 Widget
 
 閱讀：
 
+- `docs/lessons/WIDGET_MENTAL_MODEL.md`
 - `docs/lessons/FLUTTER_UI_GUIDE.md`
 - `docs/lessons/UI_COMPONENT_LIBRARY.md`
+- `docs/lessons/FORM_VALIDATION_GUIDE.md`
 - `lib/01_basic_widgets.dart`
 - `lib/03_layout_principles.dart`
 - `lib/04_responsive_layout.dart`
 - `lib/views/ui_kit_view.dart`
+- `lib/features/profile_form/`
 
 學習重點：
 
+- Everything is a Widget
+- Widget tree
+- StatelessWidget / StatefulWidget
 - Widget composition
 - Constraint-based layout
 - Material 3 元件
 - 響應式 layout
 - UI 元件如何拆分
+- Form、TextFormField、validator 與 submit state
 
 ## Phase 3：App Shell
 

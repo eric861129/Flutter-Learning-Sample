@@ -11,7 +11,9 @@
 | 起點 | [learning_path.md](learning_path.md) | 建議學習順序，適合第一次閱讀 |
 | 起點 | [sample_index.md](sample_index.md) | 所有範例入口與學習目標 |
 | 教材 | [lessons/README.md](lessons/README.md) | 課程教材總入口 |
+| 教材 | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) | Everything is a Widget 心智模型 |
 | 架構 | [architecture_overview.md](architecture_overview.md) | 目錄結構、資料流、feature-first 原則 |
+| Feature | [features/profile_form.md](features/profile_form.md) | profile form feature walkthrough |
 | Feature | [features/posts.md](features/posts.md) | posts feature walkthrough |
 | Feature | [features/settings.md](features/settings.md) | settings feature walkthrough |
 | 測試 | [testing_strategy.md](testing_strategy.md) | unit、widget、integration test 策略 |
@@ -33,10 +35,11 @@
 2. [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md)
 3. [learning_dashboard.md](learning_dashboard.md)
 4. [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md)
-5. [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)
-6. [architecture_overview.md](architecture_overview.md)
-7. [features/posts.md](features/posts.md)
-8. [testing_strategy.md](testing_strategy.md)
+5. [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md)
+6. [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)
+7. [architecture_overview.md](architecture_overview.md)
+8. [features/posts.md](features/posts.md)
+9. [testing_strategy.md](testing_strategy.md)
 
 ### 2. 我想快速找範例
 

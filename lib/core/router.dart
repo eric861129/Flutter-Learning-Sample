@@ -4,6 +4,7 @@ import '../01_basic_widgets.dart';
 import '../03_layout_principles.dart';
 import '../04_responsive_layout.dart';
 import '../features/posts/presentation/post_list_view.dart';
+import '../features/profile_form/presentation/profile_form_view.dart';
 import '../features/settings/presentation/settings_view.dart';
 import '../views/home_page.dart';
 import '../views/ui_kit_view.dart';
@@ -41,6 +42,11 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/ui-kit',
       builder: (context, state) => const UIKitView(),
+    ),
+    // 表單、驗證與送出狀態範例。
+    GoRoute(
+      path: '/profile-form',
+      builder: (context, state) => const ProfileFormView(),
     ),
     // 完整 feature-first + MVVM 範例。
     GoRoute(

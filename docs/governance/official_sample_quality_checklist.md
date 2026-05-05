@@ -40,6 +40,7 @@
 - 測試策略改動要同步更新 `docs/testing_strategy.md`。
 - 每篇 lesson / feature walkthrough 都要有「學完你應該能回答」、「最小修改練習」、「進階挑戰」。
 - 每個完整 feature 至少要有 repository test、ViewModel test、widget test。
+- 表單 feature 需額外測 validator、submit loading state 與 error display。
 - 重要 UI 可補 snapshot-style 結構檢查；需要像素級視覺保護時再使用 golden test。
 
 ## 程式碼註解標準
