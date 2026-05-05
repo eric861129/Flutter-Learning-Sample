@@ -6,6 +6,7 @@
 
 | 類型 | Sample | 程式碼 | 測試 | 文件 | 學習重點 |
 | --- | --- | --- | --- | --- | --- |
+| Dart | Zero to One Syntax | `dart_foundation/01_variables_null_safety.dart`, `dart_foundation/02_collections.dart`, `lib/features/posts/domain/post.dart` | 無 | [Dart 零基礎語法筆記](lessons/DART_ZERO_TO_ONE_CSHARP.md) | C# 類比、變數、型別、null safety、List、Map、class、fromJson |
 | Dart | Variables / Null Safety | `dart_foundation/01_variables_null_safety.dart` | 無 | [Dart 基礎](lessons/DART_BASICS_GUIDE.md) | nullable type、`??`、`?.`、`final`、`const` |
 | Dart | Collections | `dart_foundation/02_collections.dart` | 無 | [Dart 基礎](lessons/DART_BASICS_GUIDE.md) | List、Set、Map、spread、`map`、`where` |
 | Dart | Async | `dart_foundation/03_async_programming.dart` | 無 | [Dart 基礎](lessons/DART_BASICS_GUIDE.md) | `Future`、`async` / `await`、`Stream` |

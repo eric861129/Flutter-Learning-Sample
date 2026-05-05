@@ -57,6 +57,7 @@ Flutter-Learning-Sample/
 
 | 主題 | 文件 | 程式碼 |
 | --- | --- | --- |
+| Dart 零基礎 | [給 C# 開發者的 Dart 第一輪複習](./docs/lessons/DART_ZERO_TO_ONE_CSHARP.md) | `dart_foundation/`, `lib/features/posts/domain/post.dart` |
 | Dart 基礎 | [Dart 基礎指南](./docs/lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` |
 | Widget 心智模型 | [Everything is a Widget](./docs/lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` |
 | Flutter UI / Layout | [UI 與元件指南](./docs/lessons/FLUTTER_UI_GUIDE.md) | `lib/01_basic_widgets.dart` |

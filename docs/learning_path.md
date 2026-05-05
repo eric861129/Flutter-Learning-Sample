@@ -9,7 +9,7 @@
 | 階段 | 主題 | 先讀 | 對照程式碼 | 學完後應該理解 |
 | --- | --- | --- | --- | --- |
 | Phase 0 | 專案地圖 | [README.md](../README.md), [project_brief.md](project_brief.md), [docs/README.md](README.md) | 專案目錄 | 這是 Flutter Learning Lab，不是產品模板 |
-| Phase 1 | Dart 基礎 | [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` | null safety、async、collection、class |
+| Phase 1 | Dart 零基礎與語法 | [lessons/DART_ZERO_TO_ONE_CSHARP.md](lessons/DART_ZERO_TO_ONE_CSHARP.md), [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) | `dart_foundation/`, `lib/features/posts/domain/post.dart` | C# 類比、變數、型別、null safety、collection、class、fromJson |
 | Phase 2 | Widget 心智模型 | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` | Everything is a Widget、Widget tree |
 | Phase 3 | UI / Layout / Form | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md), [lessons/FORM_VALIDATION_GUIDE.md](lessons/FORM_VALIDATION_GUIDE.md) | `lib/01_basic_widgets.dart`, `lib/features/profile_form/` | layout constraints、Material 3、validator |
 | Phase 4 | App Shell | [architecture_overview.md](architecture_overview.md) | `lib/main.dart`, `lib/app.dart`, `lib/core/router.dart`, `lib/core/theme.dart` | app 如何啟動、導航、套用主題 |
