@@ -13,6 +13,7 @@
 | Dart 基礎語法 | [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` | Flutter UI |
 | Widget 完全零基礎 | [lessons/WIDGET_ZERO_TO_ONE_CSHARP.md](lessons/WIDGET_ZERO_TO_ONE_CSHARP.md) | `lib/views/home_page.dart`, `lib/01_basic_widgets.dart` | Widget 心智模型 |
 | Widget 心智模型 | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` | Layout constraints |
+| 狀態管理完全零基礎 | [lessons/STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md](lessons/STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md) | `lib/02_state_management.dart`, `lib/features/settings/` | State + Network |
 | Widget 與畫面組合 | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) | `lib/01_basic_widgets.dart` | Layout constraints |
 | Flutter 版面規則 | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) | `lib/03_layout_principles.dart` | Responsive layout |
 | 響應式 UI | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) | `lib/04_responsive_layout.dart` | UI component library |
@@ -65,6 +66,7 @@
 | 語法基礎 | 能不能說明 Dart 與 Flutter 的關係，並看懂 `class` / `fromJson` | [lessons/DART_ZERO_TO_ONE_CSHARP.md](lessons/DART_ZERO_TO_ONE_CSHARP.md), [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) |
 | Widget 基礎 | 能不能把 `HomePage` 畫成 Widget tree，並分辨 `child` / `children` | [lessons/WIDGET_ZERO_TO_ONE_CSHARP.md](lessons/WIDGET_ZERO_TO_ONE_CSHARP.md) |
 | Widget 心智模型 | 能不能用自己的話解釋 Everything is a Widget | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) |
+| 狀態管理基礎 | 能不能分辨 `StatelessWidget`、`StatefulWidget`、ViewModel / Riverpod 的使用時機 | [lessons/STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md](lessons/STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md) |
 | UI 與表單 | 能不能分清楚 layout、元件、表單驗證責任 | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) |
 | App Shell | 能不能追出 main、router、theme 的關係 | [architecture_overview.md](architecture_overview.md) |
 | Feature 分層 | 能不能從 View 追到 Repository | [features/posts.md](features/posts.md) |

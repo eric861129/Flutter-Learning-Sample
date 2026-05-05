@@ -10,6 +10,7 @@
 - [Dart 零基礎語法筆記：給 C# 開發者的第一輪複習](DART_ZERO_TO_ONE_CSHARP.md)
 - [Flutter Widget 零基礎筆記：給 C# 開發者的第一輪複習](WIDGET_ZERO_TO_ONE_CSHARP.md)
 - [Widget 心智模型：Everything is a Widget](WIDGET_MENTAL_MODEL.md)
+- [Flutter 狀態管理零基礎筆記：給 C# 開發者的第一輪複習](STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md)
 - [Flutter UI 與元件指南](FLUTTER_UI_GUIDE.md)
 - [Flutter 常用 UI 元件庫](UI_COMPONENT_LIBRARY.md)
 - [表單與驗證指南](FORM_VALIDATION_GUIDE.md)

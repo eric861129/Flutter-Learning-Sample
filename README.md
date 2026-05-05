@@ -61,6 +61,7 @@ Flutter-Learning-Sample/
 | Dart 基礎 | [Dart 基礎指南](./docs/lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` |
 | Widget 零基礎 | [給 C# 開發者的 Widget 第一輪複習](./docs/lessons/WIDGET_ZERO_TO_ONE_CSHARP.md) | `lib/views/home_page.dart`, `lib/01_basic_widgets.dart` |
 | Widget 心智模型 | [Everything is a Widget](./docs/lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` |
+| 狀態管理零基礎 | [給 C# 開發者的狀態管理第一輪複習](./docs/lessons/STATE_MANAGEMENT_ZERO_TO_ONE_CSHARP.md) | `lib/02_state_management.dart`, `lib/features/settings/` |
 | Flutter UI / Layout | [UI 與元件指南](./docs/lessons/FLUTTER_UI_GUIDE.md) | `lib/01_basic_widgets.dart` |
 | Form | [表單與驗證指南](./docs/lessons/FORM_VALIDATION_GUIDE.md) | `lib/features/profile_form/` |
 | App Shell | [架構總覽](./docs/architecture_overview.md) | `lib/main.dart`, `lib/app.dart`, `lib/core/router.dart` |

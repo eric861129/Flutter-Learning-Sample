@@ -454,6 +454,182 @@ JSON 字串
 
 這個專案的 `Post.fromJson(json)` 也是同一個概念。
 
+## 11. 專案中的 Post model
+
+Posts API 回來的資料概念上長這樣：
+
+```json
+{
+  "userId": 1,
+  "id": 1,
+  "title": "Hello",
+  "body": "This is a post"
+}
+```
+
+專案會用 `Post` class 表示一篇文章：
+
+```dart
+class Post {
+  const Post({
+    required this.id,
+    required this.userId,
+    required this.title,
+    required this.body,
+  });
+
+  final int id;
+  final int userId;
+  final String title;
+  final String body;
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      id: json['id'] as int,
+      userId: json['userId'] as int,
+      title: json['title'] as String,
+      body: json['body'] as String,
+    );
+  }
+}
+```
+
+欄位對照：
+
+| JSON key | Post 欄位 | Dart 型別 |
+| --- | --- | --- |
+| `id` | `Post.id` | `int` |
+| `userId` | `Post.userId` | `int` |
+| `title` | `Post.title` | `String` |
+| `body` | `Post.body` | `String` |
+
+所以：
+
+```dart
+title: json['title'] as String,
+```
+
+代表：
+
+```text
+從 json 裡取出 key = 'title' 的值，
+把它當成 String，
+放進 Post 的 title 欄位。
+```
+
+## 12. as 型別斷言
+
+`Map<String, dynamic>` 裡的 value 是 `dynamic`，Dart 不知道它到底是 `String`、`int`、`bool` 還是其他型別。
+
+所以在 `fromJson` 裡會看到：
+
+```dart
+json['title'] as String
+```
+
+意思是：
+
+```text
+我預期 json['title'] 是 String。
+```
+
+如果 API 真的回傳：
+
+```dart
+'title': 'Hello'
+```
+
+就可以。
+
+但如果 API 回傳：
+
+```dart
+'title': 123
+```
+
+那：
+
+```dart
+json['title'] as String
+```
+
+會在執行時出錯。
+
+C# 類比：
+
+```csharp
+var title = (string)json["title"];
+```
+
+如果實際型別不是 string，也會出錯。
+
+同理：
+
+```dart
+id: json['id'] as int,
+```
+
+代表：
+
+```text
+從 json 取出 'id' 這個欄位，把它當成 int，指定給 Post 的 id。
+```
+
+## 13. API model 為什麼常用 final
+
+`Post` 的欄位是：
+
+```dart
+final int id;
+final int userId;
+final String title;
+final String body;
+```
+
+這代表：
+
+```text
+Post 建立後，欄位不能被直接修改。
+```
+
+所以這樣會錯：
+
+```dart
+final post = Post(
+  id: 1,
+  userId: 1,
+  title: 'Hello',
+  body: 'Body',
+);
+
+post.title = 'New title'; // 錯誤
+```
+
+這是 immutable model 的概念。
+
+C# 類比：
+
+```csharp
+public record Post(int Id, int UserId, string Title, string Body);
+```
+
+或只有 getter 的 immutable class。
+
+為什麼 API model 常做成 immutable？
+
+```text
+API 回來一批 Post
+UI 顯示 Post
+如果要變更資料，由 ViewModel 控制資料流
+不要在 UI 裡到處直接改 model
+```
+
+這和 `UserPreferences` 使用 `copyWith` 的精神相同：
+
+```text
+狀態更新要明確，資料流才容易追蹤、測試和除錯。
+```
+
 ## 本章總結
 
 - `var`、`final`、`const`
@@ -467,6 +643,8 @@ JSON 字串
 - `Map<String, dynamic>` 常用來表示 JSON 解析後的資料
 - class 可以建立強型別資料模型
 - `fromJson` 負責把 Map 轉成 Dart 物件
+- `as` 可以把 dynamic 值斷言成指定型別，但實際型別不符會在執行時出錯
+- API model 常用 `final` 欄位，建立 immutable data model
 
 ## 練習題
 
@@ -477,3 +655,6 @@ JSON 字串
 5. `List<String>` 比較像 C# 的哪個型別？
 6. `Map<String, dynamic>` 為什麼適合表示 JSON？
 7. `Product.fromJson(json)` 主要解決什麼問題？
+8. `json['title'] as String` 代表什麼？
+9. 如果 `Post.title` 是 `final String title;`，建立 `Post` 後能不能直接改 `post.title`？
+10. 為什麼 API model 常做成 immutable？
