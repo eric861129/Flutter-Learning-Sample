@@ -13,6 +13,7 @@
 | 範例 | [sample_index.md](sample_index.md) | sample catalog：範例、程式碼、測試、文件 |
 | 教材 | [lessons/README.md](lessons/README.md) | 課程教材總入口 |
 | 教材 | [lessons/DART_ZERO_TO_ONE_CSHARP.md](lessons/DART_ZERO_TO_ONE_CSHARP.md) | 完全零經驗或 C# 背景讀者的 Dart 語法入口 |
+| 教材 | [lessons/WIDGET_ZERO_TO_ONE_CSHARP.md](lessons/WIDGET_ZERO_TO_ONE_CSHARP.md) | 完全零經驗或 C# 背景讀者的 Flutter Widget 入口 |
 | Feature | [features/profile_form.md](features/profile_form.md) | profile form walkthrough |
 | Feature | [features/posts.md](features/posts.md) | posts walkthrough |
 | Feature | [features/settings.md](features/settings.md) | settings walkthrough |
