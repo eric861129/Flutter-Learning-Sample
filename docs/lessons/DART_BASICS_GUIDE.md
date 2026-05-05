@@ -87,3 +87,22 @@ String handleResult(Result res) {
   };
 }
 ```
+
+## 學完你應該能回答
+
+- `final` 和 `const` 的差別是什麼？
+- nullable type 和 non-nullable type 如何影響程式安全性？
+- `async` / `await` 解決了什麼問題？
+- sealed class 搭配 pattern matching 適合表示哪些狀態？
+
+## 最小修改練習
+
+1. 在 `dart_foundation/01_variables_null_safety.dart` 新增一個 nullable `String? nickname`，並用 `??` 提供預設值。
+2. 在 `dart_foundation/03_async_programming.dart` 新增一個模擬延遲載入使用者資料的 `Future<String>`。
+3. 在 `dart_foundation/04_oop_advanced.dart` 新增一個 `Loading extends Result`，並更新 `handleResult`。
+
+## 進階挑戰
+
+1. 設計一個 `sealed class ApiResult<T>`，包含 loading、success、failure 三種狀態。
+2. 用 pattern matching 把 `ApiResult<T>` 轉成可顯示在 UI 上的文字。
+3. 寫一段簡短筆記，說明為什麼 Flutter app 常用 sealed class 或 enum 表示 UI state。

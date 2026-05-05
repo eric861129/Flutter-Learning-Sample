@@ -78,3 +78,22 @@ Widget build(BuildContext context) {
 
 ## 4. 響應式字體大小
 盡量不要寫死 `fontSize: 16`。使用 `textTheme` (如 `bodyMedium`, `titleLarge`)，這可以確保當用戶在手機系統設定中放大字體時，你的 APP 也能完美適應，這是無障礙設計 (Accessibility) 的重要一環。
+
+## 學完你應該能回答
+
+- `ThemeData`、`ColorScheme`、`TextTheme` 各自負責什麼？
+- 為什麼 Material 3 推薦用 `ColorScheme.fromSeed`？
+- 為什麼 UI 應該用 `Theme.of(context)` 取色，而不是到處寫死 `Colors.blue`？
+- 字體縮放為什麼和 accessibility 有關？
+
+## 最小修改練習
+
+1. 修改 `lib/core/theme.dart` 的 seed color，觀察整體色票如何變化。
+2. 在 `SettingsView` 中確認文字樣式是否能從 theme 取得。
+3. 找出一個寫死 `TextStyle(fontSize: ...)` 的地方，改成使用 `textTheme`。
+
+## 進階挑戰
+
+1. 替 app 新增一組更完整的 component theme，例如 `FilledButtonThemeData`。
+2. 設計一份品牌色票，並說明 primary、secondary、surface 的用途。
+3. 補一個大字體 widget test，確認主要頁面在字體放大時仍能 render。

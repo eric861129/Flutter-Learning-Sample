@@ -147,3 +147,22 @@ class PostListScreen extends ConsumerWidget {
 - `lib/features/posts/data/post_repository.dart`：資料入口，隔離 UI 與 service。
 - `lib/features/posts/presentation/post_list_view_model.dart`：管理 UI state、刷新與本地刪除事件。
 - `lib/features/posts/presentation/post_list_view.dart`：畫面呈現與事件轉交。
+
+## 學完你應該能回答
+
+- Dio、Repository、ViewModel、View 各自負責什麼？
+- 為什麼 View 不應該直接呼叫 HTTP client？
+- `AsyncValue.when` 如何強迫你處理 loading、data、error？
+- fake repository 為什麼能讓 widget test 不依賴真實網路？
+
+## 最小修改練習
+
+1. 在 posts error UI 中調整錯誤文字，讓它更適合一般使用者閱讀。
+2. 在 `PostListViewModel` 新增一個本地排序方法，例如依 title 排序。
+3. 在 widget test 中補一個空列表情境，確認 UI 會顯示空狀態。
+
+## 進階挑戰
+
+1. 替 posts 加入 search/filter/pagination 的完整列表狀態。
+2. 在 repository 加入簡單記憶體快取，避免重複呼叫 API。
+3. 寫一篇 Blog，從 `PostListView` 往下追到 `ApiClient`，說明資料如何進到畫面。

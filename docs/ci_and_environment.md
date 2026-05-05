@@ -31,8 +31,11 @@ CI 設定在：
 ```bash
 flutter pub get
 flutter analyze
-flutter test
+flutter test --coverage
 ```
+
+測試完成後，CI 會把 `coverage/lcov.info` 上傳為 `flutter-coverage-lcov` artifact。
+這份 coverage 報告用來檢查每個 feature 是否都有 repository、ViewModel、widget test 保護。
 
 ## 本機修改後的檢查清單
 

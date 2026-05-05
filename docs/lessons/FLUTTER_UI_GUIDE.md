@@ -102,3 +102,22 @@ class ResponsiveWidget extends StatelessWidget {
   }
 }
 ```
+
+## 學完你應該能回答
+
+- `StatelessWidget` 和 `StatefulWidget` 的差別是什麼？
+- Flutter layout 中「constraints go down, sizes go up, parent sets position」代表什麼？
+- 什麼情境適合用 `Row`、`Column`、`Stack`？
+- `LayoutBuilder` 為什麼適合做響應式版面？
+
+## 最小修改練習
+
+1. 修改 `lib/01_basic_widgets.dart`，新增一個有 icon、文字與背景色的資訊卡。
+2. 修改 `lib/03_layout_principles.dart`，讓其中一個 `Row` 改成可避免 overflow 的寫法。
+3. 修改 `lib/04_responsive_layout.dart`，把寬版門檻從 600 調整成 720，觀察版面語意如何改變。
+
+## 進階挑戰
+
+1. 做一個同時支援手機與平板的 dashboard layout。
+2. 在不寫死高度的前提下，讓卡片中的長文字能自然換行。
+3. 寫一篇 Blog 筆記，解釋你第一次真正理解 Flutter layout constraints 的瞬間。

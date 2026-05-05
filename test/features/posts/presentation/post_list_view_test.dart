@@ -56,6 +56,35 @@ void main() {
       expect(find.text('Body text'), findsOneWidget);
     });
 
+    testWidgets('keeps the list screen structure stable', (tester) async {
+      // Arrange：準備兩筆資料，檢查畫面骨架是否維持穩定。
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            postRepositoryProvider.overrideWithValue(
+              FakePostRepository(const [
+                Post(id: 1, title: 'First post', body: 'First body'),
+                Post(id: 2, title: 'Second post', body: 'Second body'),
+              ]),
+            ),
+          ],
+          child: const MaterialApp(home: PostListView()),
+        ),
+      );
+
+      await tester.pump();
+      await tester.pump();
+
+      // Snapshot-style：不比對像素，而是固定重要 UI 結構。
+      // 這種測試比 golden file 輕量，適合本專案的教學範例。
+      expect(find.text('文章列表 (Riverpod + Dio)'), findsOneWidget);
+      expect(find.byIcon(Icons.refresh), findsOneWidget);
+      expect(find.byType(ListTile), findsNWidgets(2));
+      expect(find.byIcon(Icons.delete_outline), findsNWidgets(2));
+      expect(find.text('First post'), findsOneWidget);
+      expect(find.text('Second post'), findsOneWidget);
+    });
+
     testWidgets('removes a post when delete is tapped', (tester) async {
       // Arrange：準備兩筆文章，稍後點擊第二筆的刪除按鈕。
       await tester.pumpWidget(

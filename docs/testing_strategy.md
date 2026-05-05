@@ -18,6 +18,8 @@
 - `test/unit_test.dart`
 - `test/features/posts/data/post_repository_test.dart`
 - `test/features/posts/presentation/post_list_view_model_test.dart`
+- `test/features/settings/data/settings_repository_test.dart`
+- `test/features/settings/presentation/settings_view_model_test.dart`
 
 ### Widget Test
 
@@ -26,11 +28,20 @@
 - UI 是否顯示正確文字
 - button tap 是否觸發預期畫面變化
 - loading/error/data state 是否正確呈現
+- snapshot-style UI 結構檢查
 
 目前範例：
 
 - `test/widget_test.dart`
 - `test/features/posts/presentation/post_list_view_test.dart`
+- `test/features/settings/presentation/settings_view_test.dart`
+
+本專案目前使用輕量 snapshot-style 檢查，而不是 golden file：
+
+- Posts widget test 固定 app bar、refresh button、list tile、delete button 結構。
+- Settings widget test 固定頁面標題、主題模式區塊與三個 radio option。
+
+這種測試不比對像素，因此比較不容易受到字型、平台或截圖環境影響；但仍能保護教學範例的主要 UI 骨架。
 
 ### Integration Test
 
@@ -81,9 +92,19 @@ ProviderScope(
 ```bash
 flutter pub get
 flutter analyze
-flutter test
+flutter test --coverage
 flutter test integration_test
 ```
+
+## Coverage 報告
+
+GitHub Actions 會執行 `flutter test --coverage`，並把 `coverage/lcov.info` 上傳成 artifact。
+
+coverage 在本專案的用途不是追求 100%，而是幫助檢查：
+
+- 新 feature 是否有測到 repository、ViewModel、widget。
+- 文件宣稱的學習重點是否真的有對應測試。
+- 重構時是否意外移除重要範例的保護網。
 
 本機沒有 Flutter 時：
 

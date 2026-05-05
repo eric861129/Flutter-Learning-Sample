@@ -100,3 +100,22 @@ ListTile(
 - **間距處理**：推薦使用 `SizedBox(height: 16)` 而不是 `Padding` 來做簡單的垂直間距，代碼更簡潔。
 - **點擊範圍**：對於自定義 UI，使用 `InkWell` 或 `GestureDetector` 包裹，並確保點擊範圍足夠大。
 - **主題一致性**：盡量使用 `Theme.of(context).colorScheme.primary` 來取顏色，這樣換主題時 UI 會自動更新。
+
+## 學完你應該能回答
+
+- `ElevatedButton`、`FilledButton`、`OutlinedButton` 各適合什麼情境？
+- `TextField` 和未來會學到的 `TextFormField` 差在哪裡？
+- `SnackBar` 和 `Dialog` 分別適合哪種使用者回饋？
+- 為什麼常用元件應該盡量吃 Theme，而不是寫死顏色？
+
+## 最小修改練習
+
+1. 在 `lib/views/ui_kit_view.dart` 新增一個 `DropdownMenu` 或 `SegmentedButton` 範例。
+2. 替其中一個 `IconButton` 補上 `tooltip`。
+3. 新增一個 `SnackBarAction`，讓通知具備可操作的回饋。
+
+## 進階挑戰
+
+1. 把 UI kit 拆成多個小 widget，降低單一檔案長度。
+2. 建立一組「表單元件區」，銜接之後的 Form / validator 章節。
+3. 替 UI kit 補一個 snapshot-style widget test，固定主要元件區塊都存在。

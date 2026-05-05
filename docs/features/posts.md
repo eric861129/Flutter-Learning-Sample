@@ -101,9 +101,21 @@ Widget test：
 - 注入 fake repository
 - 驗證畫面文字、刪除按鈕、錯誤 UI
 
-## 延伸練習
+## 學完你應該能回答
+
+- Posts feature 的 `domain`、`data`、`presentation` 各自放什麼？
+- 為什麼 ViewModel 依賴 `PostRepository`，而不是直接依賴 `PostApiService`？
+- `AsyncValue<List<Post>>` 如何對應到 loading、data、error UI？
+- Widget test 如何用 fake repository 驗證畫面，而不打真實 API？
+
+## 最小修改練習
 
 1. 新增空列表 UI：當 posts 為空時顯示「目前沒有文章」。
 2. 新增 post detail route：點擊文章後用 `go_router` 前往詳細頁。
-3. 新增 repository cache：第一次載入後暫存 posts。
-4. 將 JSONPlaceholder API 換成自己的 API。
+3. 補一個 widget test，驗證空列表 UI。
+
+## 進階挑戰
+
+1. 新增 repository cache：第一次載入後暫存 posts。
+2. 將 JSONPlaceholder API 換成自己的 API。
+3. 加入 search、filter、pagination，讓 posts 變成更接近真實產品的列表頁。

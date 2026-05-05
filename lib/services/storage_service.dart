@@ -1,4 +1,13 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+/// StorageService 的全域 provider。
+///
+/// 把共用 service 放進 provider，可以讓 feature repository 透過 Riverpod 取得依賴，
+/// 測試時也能用 fake service 覆蓋掉真實 SharedPreferences。
+final storageServiceProvider = Provider<StorageService>(
+  (ref) => StorageService(),
+);
 
 /// 本地儲存服務。
 ///

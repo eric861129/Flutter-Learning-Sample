@@ -49,5 +49,6 @@
 | Feature | 入口 | 測試 | 學習目標 |
 | --- | --- | --- | --- |
 | Posts | `lib/features/posts/` | `test/features/posts/` | feature-first、Repository、ViewModel、AsyncValue、fake repository widget test |
+| Settings | `lib/features/settings/` | `test/features/settings/` | SharedPreferences、ThemeMode、使用者偏好設定、app shell state |
 
 對應教材：[進階狀態管理與網路串接](lessons/ADVANCED_STATE_NETWORK.md)

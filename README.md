@@ -43,7 +43,9 @@ Flutter-Learning-Sample/
 
 想快速查「我要學什麼、該看哪裡、下一步去哪」：
 
+- [docs/7_day_flutter_learning_plan.md](./docs/7_day_flutter_learning_plan.md)
 - [docs/learning_dashboard.md](./docs/learning_dashboard.md)
+- [docs/common_flutter_pitfalls.md](./docs/common_flutter_pitfalls.md)
 - [docs/blog_learning_journal.md](./docs/blog_learning_journal.md)
 
 ---
@@ -109,7 +111,7 @@ Flutter-Learning-Sample/
 | UI Kit | [常用 UI 元件庫](./docs/lessons/UI_COMPONENT_LIBRARY.md) | `lib/views/ui_kit_view.dart` |
 | Routing | [路由與導航](./docs/lessons/ROUTING_NAVIGATION_GUIDE.md) | `lib/core/router.dart` |
 | Theme | [主題與視覺設計](./docs/lessons/THEME_AND_STYLING_GUIDE.md) | `lib/core/theme.dart` |
-| Storage | [本地儲存與快取](./docs/lessons/LOCAL_STORAGE_GUIDE.md) | `lib/services/storage_service.dart` |
+| Storage / Settings | [本地儲存與快取](./docs/lessons/LOCAL_STORAGE_GUIDE.md) | `lib/features/settings/` |
 | State + Network | [狀態與網路](./docs/lessons/ADVANCED_STATE_NETWORK.md) | `lib/features/posts/` |
 | Testing / Native / Deploy | [測試、原生與上架](./docs/lessons/NATIVE_TESTING_DEPLOYMENT.md) | `test/`, `integration_test/` |
 
@@ -178,13 +180,16 @@ dart run dart_foundation/01_variables_null_safety.dart
 | 文件 | 用途 |
 | --- | --- |
 | [docs/README.md](./docs/README.md) | 知識庫總入口 |
+| [docs/7_day_flutter_learning_plan.md](./docs/7_day_flutter_learning_plan.md) | 七天每日一小時學習計畫 |
 | [docs/learning_dashboard.md](./docs/learning_dashboard.md) | 查詢式學習儀表板 |
 | [docs/learning_path.md](./docs/learning_path.md) | 從零開始的學習路線 |
 | [docs/sample_index.md](./docs/sample_index.md) | 範例索引 |
 | [docs/architecture_overview.md](./docs/architecture_overview.md) | 架構與資料流 |
 | [docs/features/posts.md](./docs/features/posts.md) | posts feature walkthrough |
+| [docs/features/settings.md](./docs/features/settings.md) | settings feature walkthrough |
 | [docs/testing_strategy.md](./docs/testing_strategy.md) | 測試策略 |
 | [docs/blog_learning_journal.md](./docs/blog_learning_journal.md) | Blog 學習紀錄模板 |
+| [docs/common_flutter_pitfalls.md](./docs/common_flutter_pitfalls.md) | 常見難題與雷點 |
 | [docs/lessons/README.md](./docs/lessons/README.md) | 課程教材入口 |
 | [docs/governance/official_sample_quality_checklist.md](./docs/governance/official_sample_quality_checklist.md) | 官方等級範例檢查表 |
 | [docs/troubleshooting.md](./docs/troubleshooting.md) | 疑難排解 |
@@ -197,6 +202,7 @@ dart run dart_foundation/01_variables_null_safety.dart
 
 - Flutter app shell：`ProviderScope`、`MaterialApp.router`、theme、go_router
 - feature-first posts 範例
+- feature-first settings 範例
 - Riverpod AsyncNotifier ViewModel
 - Dio API client
 - SharedPreferencesAsync storage service

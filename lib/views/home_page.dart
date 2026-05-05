@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
             title: '狀態與資料',
             items: const [
               _LearningItem('Riverpod + Dio 文章列表', '/posts'),
+              _LearningItem('SharedPreferences 偏好設定', '/settings'),
             ],
             header: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),

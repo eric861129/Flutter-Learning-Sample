@@ -38,6 +38,14 @@ Flutter-Learning-Sample/
         presentation/
           post_list_view.dart
           post_list_view_model.dart
+      settings/
+        data/
+          settings_repository.dart
+        domain/
+          user_preferences.dart
+        presentation/
+          settings_view.dart
+          settings_view_model.dart
     services/
       api_client.dart
       storage_service.dart
@@ -77,6 +85,17 @@ PostListView
   -> JSONPlaceholder API
 ```
 
+Settings feature 的資料流：
+
+```text
+SettingsView
+  -> SettingsViewModel
+  -> SettingsRepository
+  -> StorageService
+  -> SharedPreferencesAsync
+  -> MyApp applies ThemeMode
+```
+
 回傳方向：
 
 ```text
@@ -98,6 +117,8 @@ JSON
 - View 如何呈現狀態
 - tests 如何用 fake repository 驗證行為
 
+`features/settings/` 示範另一種常見 feature：資料不來自 API，而是來自本地偏好設定。它仍然使用同樣分層，讓初學者理解 feature-first 不只適用於網路資料。
+
 ## 什麼時候新增 use case
 
 目前 posts 的邏輯很小，ViewModel 直接呼叫 Repository 即可。若未來出現跨多個 repository 的流程，例如「登入後同步使用者、設定與離線快取」，就可以加入：
@@ -115,4 +136,4 @@ features/<name>/domain/use_cases/
 - **命名規範**：類別名用 `UpperCamelCase`，變數與檔案名用 `snake_case`。
 - **可測試性**：外部依賴用建構子注入，例如 `PostApiService({ApiClient? apiClient})`。
 - **文件同步**：教學文件中的套件版本與實作範例要和 `pubspec.yaml` 保持一致。
-- **CI 驗證**：本機無法安裝 Flutter 時，至少用 GitHub Actions 跑 `flutter analyze` 與 `flutter test`。
+- **CI 驗證**：本機無法安裝 Flutter 時，至少用 GitHub Actions 跑 `flutter analyze` 與 `flutter test --coverage`。

@@ -77,7 +77,9 @@
 
 - `docs/architecture_overview.md`
 - `docs/features/posts.md`
+- `docs/features/settings.md`
 - `lib/features/posts/`
+- `lib/features/settings/`
 
 學習重點：
 
@@ -86,6 +88,7 @@
 - `presentation/` 放 ViewModel 與 View
 - View 不直接碰 HTTP
 - Repository 是 feature data 的入口
+- Settings feature 如何把 SharedPreferences 偏好設定接回 `MaterialApp`
 
 ## Phase 5：測試與品質
 

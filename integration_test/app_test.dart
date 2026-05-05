@@ -15,5 +15,6 @@ void main() {
     expect(find.text('Flutter 學習路徑'), findsOneWidget);
     expect(find.text('基礎 UI'), findsOneWidget);
     expect(find.text('狀態與資料'), findsOneWidget);
+    expect(find.text('SharedPreferences 偏好設定'), findsOneWidget);
   });
 }

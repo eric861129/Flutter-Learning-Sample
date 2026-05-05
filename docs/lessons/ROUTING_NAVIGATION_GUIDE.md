@@ -81,3 +81,22 @@ final router = GoRouter(
   // ... routes
 );
 ```
+
+## 學完你應該能回答
+
+- `go_router` 和直接使用 `Navigator.push` 的差別是什麼？
+- 為什麼路由表適合集中放在 `core/router.dart`？
+- `context.push`、`context.go`、`context.pop` 各代表什麼意圖？
+- redirect / auth guard 適合處理哪些流程？
+
+## 最小修改練習
+
+1. 在 `lib/core/router.dart` 新增一個簡單的 demo route。
+2. 在 `HomePage` 加入對應的學習項目入口。
+3. 替新增 route 寫一個最小 widget test，確認頁面標題存在。
+
+## 進階挑戰
+
+1. 替 posts 新增 detail route，點擊文章後進入詳細頁。
+2. 設計一個假登入狀態，練習用 redirect 保護 `/settings`。
+3. 寫一篇筆記，比較 declarative routing 和 imperative navigation 的心智模型。

@@ -6,18 +6,21 @@
 
 | 分類 | 文件 | 說明 |
 | --- | --- | --- |
+| 起點 | [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md) | 七天每日一小時 Flutter 學習計畫 |
 | 起點 | [learning_dashboard.md](learning_dashboard.md) | 查詢式學習儀表板：想學什麼、看哪裡、下一步去哪 |
 | 起點 | [learning_path.md](learning_path.md) | 建議學習順序，適合第一次閱讀 |
 | 起點 | [sample_index.md](sample_index.md) | 所有範例入口與學習目標 |
 | 教材 | [lessons/README.md](lessons/README.md) | 課程教材總入口 |
 | 架構 | [architecture_overview.md](architecture_overview.md) | 目錄結構、資料流、feature-first 原則 |
 | Feature | [features/posts.md](features/posts.md) | posts feature walkthrough |
+| Feature | [features/settings.md](features/settings.md) | settings feature walkthrough |
 | 測試 | [testing_strategy.md](testing_strategy.md) | unit、widget、integration test 策略 |
 | 環境 | [ci_and_environment.md](ci_and_environment.md) | 本機無 Flutter 時的 CI 驗證方式 |
 | 擴充 | [adding_new_samples.md](adding_new_samples.md) | 新增範例規範 |
 | 分享 | [blog_learning_journal.md](blog_learning_journal.md) | Blog 學習紀錄模板與文章順序 |
 | 治理 | [governance/official_sample_quality_checklist.md](governance/official_sample_quality_checklist.md) | 官方等級 sample 檢查表 |
 | 參考 | [glossary.md](glossary.md) | 術語表 |
+| 參考 | [common_flutter_pitfalls.md](common_flutter_pitfalls.md) | 常見難題與雷點 |
 | 參考 | [troubleshooting.md](troubleshooting.md) | 疑難排解 |
 
 ## 三種閱讀方式
@@ -27,12 +30,13 @@
 照順序讀：
 
 1. [learning_path.md](learning_path.md)
-2. [learning_dashboard.md](learning_dashboard.md)
-3. [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md)
-4. [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)
-5. [architecture_overview.md](architecture_overview.md)
-6. [features/posts.md](features/posts.md)
-7. [testing_strategy.md](testing_strategy.md)
+2. [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md)
+3. [learning_dashboard.md](learning_dashboard.md)
+4. [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md)
+5. [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md)
+6. [architecture_overview.md](architecture_overview.md)
+7. [features/posts.md](features/posts.md)
+8. [testing_strategy.md](testing_strategy.md)
 
 ### 2. 我想快速找範例
 

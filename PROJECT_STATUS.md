@@ -1,6 +1,6 @@
 # 專案完整度狀態
 
-最後更新：2026-05-04
+最後更新：2026-05-05
 
 ## 評估摘要
 
@@ -17,13 +17,20 @@
 - 將 `StorageService` 改成 `SharedPreferencesAsync` 實作。
 - 將 `ApiClient` 改成可注入 token 與 Dio 的寫法，移除硬編碼假 token。
 - 將 posts 範例整理為 `lib/features/posts/` feature-first 架構，對齊 Flutter 官方架構指南的 Views、ViewModels、Repositories、Services 分層。
+- 新增 Settings feature，示範 SharedPreferences、ThemeMode、使用者偏好設定與 app shell state 串接。
 - 新增 integration test 範例。
 - 新增 GitHub Actions workflow。
 - 補上 posts repository、view model、widget fake repository 測試。
+- 補上 settings repository、view model、widget fake repository 測試。
+- 補上 posts/settings widget snapshot-style UI 結構檢查。
+- GitHub Actions 改為執行 `flutter test --coverage`，並上傳 coverage artifact。
 - posts 測試集中在 `test/features/posts/`，和 feature 目錄對齊。
 - 新增 `docs/` 知識庫入口、學習路線、範例索引、架構總覽、測試策略、CI 說明、疑難排解與新增範例規範。
 - 新增 `docs/learning_dashboard.md` 查詢式學習儀表板，讓學習者能快速找到「想學什麼、該看哪裡、下一步去哪」。
 - 新增 `docs/blog_learning_journal.md`，支援未來把 Flutter 學習過程整理成 Blog 系列文章。
+- 新增 `docs/7_day_flutter_learning_plan.md`，規劃七天每日一小時的 Flutter 學習入口。
+- 新增 `docs/common_flutter_pitfalls.md`，整理學習過程常見難題與雷點。
+- 補齊每篇 lesson / feature walkthrough 的「學完你應該能回答」、「最小修改練習」、「進階挑戰」。
 - 將根目錄教學型 Markdown 集中移到 `docs/lessons/`。
 - 將官方等級範例檢查表移到 `docs/governance/`。
 - 將架構摘要併入 `docs/architecture_overview.md`，讓根目錄只保留入口與狀態文件。
@@ -37,7 +44,7 @@
 ```bash
 flutter pub get
 flutter analyze
-flutter test
+flutter test --coverage
 flutter run
 ```
 

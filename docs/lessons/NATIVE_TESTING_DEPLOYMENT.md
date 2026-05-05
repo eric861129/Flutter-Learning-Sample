@@ -118,3 +118,22 @@ testWidgets('測試按鈕點擊後文字是否改變', (WidgetTester tester) asy
 1. **先求有再求好**：初學者建議先從 **Unit Test** 寫起，這對邏輯思考很有幫助。
 2. **多用現成套件**：在上架配置（Icon/Splash）上，盡量使用社群套件，避免手動修改原生代碼導致出錯。
 3. **檢查清單**：上架前一定要在「真機」上跑過，不要只依賴模擬器。
+
+## 學完你應該能回答
+
+- Unit test、widget test、integration test 各自保護哪一層？
+- MethodChannel 適合解決哪些 Flutter 套件無法直接處理的問題？
+- App icon 和 splash screen 為什麼通常用套件產生，而不是手動改原生檔？
+- Android `.aab` 和 iOS `.ipa` 分別用在哪裡？
+
+## 最小修改練習
+
+1. 在 `.github/workflows/flutter.yml` 確認 CI 會執行 analyze 與 test。
+2. 在 `docs/ci_and_environment.md` 補一條你自己的本機檢查命令。
+3. 在 `assets/README.md` 規劃 app icon 和 splash assets 的命名方式。
+
+## 進階挑戰
+
+1. 設計 dev / staging / prod 的 build command 表。
+2. 替 GitHub Actions 增加一個 build artifact 範例，例如 web build。
+3. 寫一篇 Blog，說明「學習專案」和「可上架專案」在品質檢查上的差異。

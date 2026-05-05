@@ -10,6 +10,7 @@
 - `analysis_options.yaml` 啟用官方 lint。
 - `flutter analyze` 沒有 error。
 - `flutter test` 通過。
+- CI 產出 coverage artifact，方便檢查範例是否有測試保護。
 - 程式碼中的教學註解解釋「為什麼」，不重複描述「這一行做什麼」。
 - 對初學者重要的 public class、provider、service、repository、view model、widget test 都要有繁體中文註解。
 - 文件中的套件、API 名稱與程式碼一致。
@@ -37,6 +38,9 @@
 - 每個完整 feature 都要有 `docs/features/<feature_name>.md`。
 - 架構改動要同步更新 `docs/architecture_overview.md`。
 - 測試策略改動要同步更新 `docs/testing_strategy.md`。
+- 每篇 lesson / feature walkthrough 都要有「學完你應該能回答」、「最小修改練習」、「進階挑戰」。
+- 每個完整 feature 至少要有 repository test、ViewModel test、widget test。
+- 重要 UI 可補 snapshot-style 結構檢查；需要像素級視覺保護時再使用 golden test。
 
 ## 程式碼註解標準
 
