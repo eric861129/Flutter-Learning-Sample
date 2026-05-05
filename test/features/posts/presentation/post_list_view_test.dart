@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning_sample/features/posts/data/post_repository.dart';
 import 'package:flutter_learning_sample/features/posts/domain/post.dart';
+import 'package:flutter_learning_sample/features/posts/domain/post_query.dart';
 import 'package:flutter_learning_sample/features/posts/presentation/post_list_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,10 +14,17 @@ class FakePostRepository implements PostRepository {
   FakePostRepository(this.posts);
 
   final List<Post> posts;
+  final List<PostQuery> queries = [];
 
   @override
   Future<List<Post>> fetchPosts() async {
     return posts;
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    queries.add(query);
+    return PostPage(items: posts, hasMore: false);
   }
 }
 
@@ -27,6 +35,36 @@ class FailingPostRepository implements PostRepository {
   @override
   Future<List<Post>> fetchPosts() async {
     throw Exception('network failed');
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    throw Exception('network failed');
+  }
+}
+
+class PagingPostRepository implements PostRepository {
+  final List<PostQuery> queries = [];
+
+  @override
+  Future<List<Post>> fetchPosts() async {
+    return const [];
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    queries.add(query);
+    if (query.page == 1) {
+      return const PostPage(
+        items: [Post(id: 1, title: 'First page', body: 'Body')],
+        hasMore: true,
+      );
+    }
+
+    return const PostPage(
+      items: [Post(id: 2, title: 'Second page', body: 'Body')],
+      hasMore: false,
+    );
   }
 }
 
@@ -79,6 +117,10 @@ void main() {
       // 這種測試比 golden file 輕量，適合本專案的教學範例。
       expect(find.text('文章列表 (Riverpod + Dio)'), findsOneWidget);
       expect(find.byIcon(Icons.refresh), findsOneWidget);
+      expect(find.byKey(const Key('posts_search_field')), findsOneWidget);
+      expect(find.text('全部'), findsOneWidget);
+      expect(find.text('標題'), findsOneWidget);
+      expect(find.text('內文'), findsOneWidget);
       expect(find.byType(ListTile), findsNWidgets(2));
       expect(find.byIcon(Icons.delete_outline), findsNWidgets(2));
       expect(find.text('First post'), findsOneWidget);
@@ -130,6 +172,82 @@ void main() {
       // Assert：畫面應進入 error state，並提供重試按鈕。
       expect(find.textContaining('出錯了:'), findsOneWidget);
       expect(find.text('重試'), findsOneWidget);
+    });
+
+    testWidgets('updates search query after debounce', (tester) async {
+      final repository = FakePostRepository(const [
+        Post(id: 1, title: 'Flutter search', body: 'Body'),
+      ]);
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            postRepositoryProvider.overrideWithValue(repository),
+          ],
+          child: const MaterialApp(home: PostListView()),
+        ),
+      );
+
+      await tester.pump();
+      await tester.pump();
+
+      await tester.enterText(
+        find.byKey(const Key('posts_search_field')),
+        'flutter',
+      );
+      await tester.pump(const Duration(milliseconds: 350));
+      await tester.pump();
+
+      expect(repository.queries.last.searchTerm, 'flutter');
+      expect(repository.queries.last.page, 1);
+    });
+
+    testWidgets('changes filter when filter chip is tapped', (tester) async {
+      final repository = FakePostRepository(const [
+        Post(id: 1, title: 'Flutter search', body: 'Body'),
+      ]);
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            postRepositoryProvider.overrideWithValue(repository),
+          ],
+          child: const MaterialApp(home: PostListView()),
+        ),
+      );
+
+      await tester.pump();
+      await tester.pump();
+
+      await tester.tap(find.text('標題'));
+      await tester.pump();
+      await tester.pump();
+
+      expect(repository.queries.last.filter, PostSearchFilter.title);
+    });
+
+    testWidgets('loads more posts from the next page', (tester) async {
+      final repository = PagingPostRepository();
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            postRepositoryProvider.overrideWithValue(repository),
+          ],
+          child: const MaterialApp(home: PostListView()),
+        ),
+      );
+
+      await tester.pump();
+      await tester.pump();
+
+      await tester.tap(find.text('載入更多'));
+      await tester.pump();
+      await tester.pump();
+
+      expect(find.text('First page'), findsOneWidget);
+      expect(find.text('Second page'), findsOneWidget);
+      expect(repository.queries.map((query) => query.page), [1, 2]);
     });
   });
 }

@@ -41,7 +41,7 @@ class AppTheme {
 
 ## 2. 在專案中套用主題
 
-在你的 `main.dart` 中，設定 `theme` 與 `darkTheme`。
+在本專案中，`main.dart` 只負責啟動 app；真正設定 `theme` 與 `darkTheme` 的地方是 `lib/app.dart`。
 
 ```dart
 MaterialApp(

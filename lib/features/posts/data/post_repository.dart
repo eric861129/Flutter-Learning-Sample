@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/post.dart';
+import '../domain/post_query.dart';
 import 'post_api_service.dart';
 
 /// PostApiService 的 Riverpod provider。
@@ -29,6 +30,12 @@ final postRepositoryProvider = Provider<PostRepository>(
 abstract class PostRepository {
   /// 取得文章列表。
   Future<List<Post>> fetchPosts();
+
+  /// 依查詢條件取得一頁文章。
+  ///
+  /// 這個方法示範搜尋、篩選與分頁的 repository 介面。
+  /// UI 不需要知道資料來源是否真的支援 server-side pagination。
+  Future<PostPage> fetchPostPage(PostQuery query);
 }
 
 /// 從遠端 API 取得文章資料的 repository 實作。
@@ -47,5 +54,43 @@ class RemotePostRepository implements PostRepository {
     // 這裡保持簡單：資料來源只有遠端 API。
     // 若未來支援本地快取，仍會維持同一個 fetchPosts 介面。
     return _apiService.getPosts();
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    final posts = await _apiService.getPosts();
+    final filteredPosts = _filterPosts(posts, query);
+    final start = (query.page - 1) * query.pageSize;
+
+    if (start >= filteredPosts.length) {
+      return const PostPage(items: [], hasMore: false);
+    }
+
+    final end = start + query.pageSize;
+    final pageItems = filteredPosts.skip(start).take(query.pageSize).toList();
+
+    return PostPage(
+      items: pageItems,
+      hasMore: end < filteredPosts.length,
+    );
+  }
+
+  List<Post> _filterPosts(List<Post> posts, PostQuery query) {
+    final keyword = query.searchTerm.trim().toLowerCase();
+    if (keyword.isEmpty) {
+      return posts;
+    }
+
+    return posts.where((post) {
+      final title = post.title.toLowerCase();
+      final body = post.body.toLowerCase();
+
+      return switch (query.filter) {
+        PostSearchFilter.all =>
+          title.contains(keyword) || body.contains(keyword),
+        PostSearchFilter.title => title.contains(keyword),
+        PostSearchFilter.body => body.contains(keyword),
+      };
+    }).toList();
   }
 }

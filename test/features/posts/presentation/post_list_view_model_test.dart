@@ -1,5 +1,6 @@
 import 'package:flutter_learning_sample/features/posts/data/post_repository.dart';
 import 'package:flutter_learning_sample/features/posts/domain/post.dart';
+import 'package:flutter_learning_sample/features/posts/domain/post_query.dart';
 import 'package:flutter_learning_sample/features/posts/presentation/post_list_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,10 +13,54 @@ class FakePostRepository implements PostRepository {
   FakePostRepository(this.posts);
 
   final List<Post> posts;
+  final List<PostQuery> queries = [];
 
   @override
   Future<List<Post>> fetchPosts() async {
     return posts;
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    queries.add(query);
+    return PostPage(items: posts, hasMore: false);
+  }
+}
+
+class PagingPostRepository implements PostRepository {
+  final List<PostQuery> queries = [];
+
+  @override
+  Future<List<Post>> fetchPosts() async {
+    return const [];
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    queries.add(query);
+    if (query.page == 1) {
+      return const PostPage(
+        items: [Post(id: 1, title: 'Page 1', body: 'Body')],
+        hasMore: true,
+      );
+    }
+
+    return const PostPage(
+      items: [Post(id: 2, title: 'Page 2', body: 'Body')],
+      hasMore: false,
+    );
+  }
+}
+
+class FailingPostRepository implements PostRepository {
+  @override
+  Future<List<Post>> fetchPosts() async {
+    throw Exception('network failed');
+  }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    throw Exception('network failed');
   }
 }
 
@@ -36,10 +81,10 @@ void main() {
       addTearDown(container.dispose);
 
       // Act：讀取 provider 的 future 會觸發 ViewModel.build。
-      final posts = await container.read(postListViewModelProvider.future);
+      final listState = await container.read(postListViewModelProvider.future);
 
       // Assert：確認 UI state 取得 fake repository 的資料。
-      expect(posts, expectedPosts);
+      expect(listState.posts, expectedPosts);
     });
 
     test('deletePost removes an item from the current UI state', () async {
@@ -63,7 +108,93 @@ void main() {
 
       // Assert：確認剩下的文章 id 只有 1。
       final state = container.read(postListViewModelProvider).value;
-      expect(state?.map((post) => post.id), [1]);
+      expect(state?.posts.map((post) => post.id), [1]);
+    });
+
+    test('debounces search query before reloading first page', () async {
+      final repository = FakePostRepository(const [
+        Post(id: 1, title: 'Flutter search', body: 'Body'),
+      ]);
+      final container = ProviderContainer(
+        overrides: [
+          postRepositoryProvider.overrideWithValue(repository),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      await container.read(postListViewModelProvider.future);
+
+      container
+          .read(postListViewModelProvider.notifier)
+          .updateSearchTerm('flutter');
+
+      expect(repository.queries.length, 1);
+
+      await Future<void>.delayed(const Duration(milliseconds: 350));
+
+      expect(repository.queries.length, 2);
+      expect(repository.queries.last.searchTerm, 'flutter');
+      expect(repository.queries.last.page, 1);
+    });
+
+    test('changing filter reloads the first page immediately', () async {
+      final repository = FakePostRepository(const [
+        Post(id: 1, title: 'Flutter search', body: 'Body'),
+      ]);
+      final container = ProviderContainer(
+        overrides: [
+          postRepositoryProvider.overrideWithValue(repository),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      await container.read(postListViewModelProvider.future);
+
+      await container
+          .read(postListViewModelProvider.notifier)
+          .changeFilter(PostSearchFilter.title);
+
+      expect(repository.queries.last.filter, PostSearchFilter.title);
+      expect(repository.queries.last.page, 1);
+    });
+
+    test('loadMore appends the next page', () async {
+      final repository = PagingPostRepository();
+      final container = ProviderContainer(
+        overrides: [
+          postRepositoryProvider.overrideWithValue(repository),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      await container.read(postListViewModelProvider.future);
+
+      await container.read(postListViewModelProvider.notifier).loadMore();
+
+      final state = container.read(postListViewModelProvider).value;
+      expect(state?.posts.map((post) => post.id), [1, 2]);
+      expect(state?.hasMore, isFalse);
+      expect(repository.queries.map((query) => query.page), [1, 2]);
+    });
+
+    test('retry reloads data after an interaction error', () async {
+      final container = ProviderContainer(
+        overrides: [
+          postRepositoryProvider.overrideWithValue(FailingPostRepository()),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      await expectLater(
+        container.read(postListViewModelProvider.future),
+        throwsException,
+      );
+
+      await container
+          .read(postListViewModelProvider.notifier)
+          .retryInitialLoad();
+
+      expect(container.read(postListViewModelProvider).hasError, isTrue);
     });
   });
 }

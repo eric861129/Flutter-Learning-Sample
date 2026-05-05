@@ -1,142 +1,52 @@
-# 學習路線
+# 學習路線總覽
 
-這條路線適合想用本專案系統性學 Flutter 的學習者。每一階段都包含「先理解概念，再看程式碼，再看測試」。
+這份文件只負責回答一件事：**從零開始學 Flutter，整體順序應該怎麼走？**
 
-## Phase 0：專案地圖
+如果你要每日任務，請看 [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md)。如果你想先知道七天後會完成什麼，請看 [project_brief.md](project_brief.md)。
 
-先讀：
+## 路線圖
 
-- `README.md`
-- `docs/README.md`
-- `docs/learning_dashboard.md`
-- `PROJECT_STATUS.md`
+| 階段 | 主題 | 先讀 | 對照程式碼 | 學完後應該理解 |
+| --- | --- | --- | --- | --- |
+| Phase 0 | 專案地圖 | [README.md](../README.md), [project_brief.md](project_brief.md), [docs/README.md](README.md) | 專案目錄 | 這是 Flutter Learning Lab，不是產品模板 |
+| Phase 1 | Dart 基礎 | [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) | `dart_foundation/` | null safety、async、collection、class |
+| Phase 2 | Widget 心智模型 | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) | `lib/views/home_page.dart` | Everything is a Widget、Widget tree |
+| Phase 3 | UI / Layout / Form | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md), [lessons/FORM_VALIDATION_GUIDE.md](lessons/FORM_VALIDATION_GUIDE.md) | `lib/01_basic_widgets.dart`, `lib/features/profile_form/` | layout constraints、Material 3、validator |
+| Phase 4 | App Shell | [architecture_overview.md](architecture_overview.md) | `lib/main.dart`, `lib/app.dart`, `lib/core/router.dart`, `lib/core/theme.dart` | app 如何啟動、導航、套用主題 |
+| Phase 5 | Feature-first | [features/posts.md](features/posts.md), [features/settings.md](features/settings.md) | `lib/features/` | domain/data/presentation 分工 |
+| Phase 6 | State / Network / Storage | [lessons/ADVANCED_STATE_NETWORK.md](lessons/ADVANCED_STATE_NETWORK.md), [lessons/LOCAL_STORAGE_GUIDE.md](lessons/LOCAL_STORAGE_GUIDE.md) | `lib/services/`, `lib/features/posts/`, `lib/features/settings/` | Repository、ViewModel、AsyncValue、SharedPreferences |
+| Phase 7 | Testing / CI | [testing_strategy.md](testing_strategy.md), [ci_and_environment.md](ci_and_environment.md) | `test/`, `.github/workflows/flutter.yml` | fake repository、widget test、CI 驗證 |
+| Phase 8 | 回顧、發布概念與擴充 | [lessons/NATIVE_TESTING_DEPLOYMENT.md](lessons/NATIVE_TESTING_DEPLOYMENT.md), [learning_dashboard.md](learning_dashboard.md), [adding_new_samples.md](adding_new_samples.md) | 新 sample | 能規劃下一個 feature、打包驗收項目與文件測試 |
 
-你要先知道這個 repo 是教學範例，不是完整產品。目標是學會 Flutter app 的常見組成：語法、Widget、狀態、資料、路由、主題、儲存、測試與 CI。
+## 推薦節奏
 
-如果你中途不知道下一科要讀什麼，回到 `docs/learning_dashboard.md`，用「我想學會」或「我遇到的問題」查下一個入口。
+每個階段都用同一個方式讀：
 
-## Phase 1：Dart 基礎
+1. 先讀概念文件，知道這個主題解決什麼問題。
+2. 打開一個入口檔案，不急著讀完整 repo。
+3. 從畫面往下追到 ViewModel、Repository 或 Service。
+4. 看對應測試，理解這個設計怎麼被驗證。
+5. 做章末「最小修改練習」。
 
-閱讀：
+## 什麼時候回到哪份文件
 
-- `docs/lessons/DART_BASICS_GUIDE.md`
-- `dart_foundation/01_variables_null_safety.dart`
-- `dart_foundation/02_collections.dart`
-- `dart_foundation/03_async_programming.dart`
-- `dart_foundation/04_oop_advanced.dart`
+| 狀況 | 回到 |
+| --- | --- |
+| 不知道今天要讀什麼 | [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md) |
+| 不知道這個專案七天後會長怎樣 | [project_brief.md](project_brief.md) |
+| 不知道某個主題在哪裡 | [learning_dashboard.md](learning_dashboard.md) |
+| 不知道範例對應哪些檔案 | [sample_index.md](sample_index.md) |
+| 不知道架構為什麼這樣分 | [architecture_overview.md](architecture_overview.md) |
+| 不知道測試要補哪一層 | [testing_strategy.md](testing_strategy.md) |
+| 想新增自己的 feature | [adding_new_samples.md](adding_new_samples.md) |
 
-學習重點：
+## 七天後的能力目標
 
-- Null safety
-- `final` / `const`
-- Collection 操作
-- `Future` / `Stream`
-- sealed class 與 pattern matching
+學完這條路線後，你應該能：
 
-## Phase 2：概念突破：一切皆 Widget
-
-閱讀：
-
-- `docs/lessons/WIDGET_MENTAL_MODEL.md`
-- `docs/lessons/FLUTTER_UI_GUIDE.md`
-- `docs/lessons/UI_COMPONENT_LIBRARY.md`
-- `docs/lessons/FORM_VALIDATION_GUIDE.md`
-- `lib/01_basic_widgets.dart`
-- `lib/03_layout_principles.dart`
-- `lib/04_responsive_layout.dart`
-- `lib/views/ui_kit_view.dart`
-- `lib/features/profile_form/`
-
-學習重點：
-
-- Everything is a Widget
-- Widget tree
-- StatelessWidget / StatefulWidget
-- Widget composition
-- Constraint-based layout
-- Material 3 元件
-- 響應式 layout
-- UI 元件如何拆分
-- Form、TextFormField、validator 與 submit state
-
-## Phase 3：App Shell
-
-閱讀：
-
-- `lib/main.dart`
-- `lib/core/router.dart`
-- `lib/core/theme.dart`
-- `lib/views/home_page.dart`
-- `docs/lessons/ROUTING_NAVIGATION_GUIDE.md`
-- `docs/lessons/THEME_AND_STYLING_GUIDE.md`
-
-學習重點：
-
-- `ProviderScope`
-- `MaterialApp.router`
-- `go_router`
-- ThemeData / ColorScheme
-- app shell 和 feature screen 的分工
-
-## Phase 4：Feature-first + MVVM
-
-閱讀：
-
-- `docs/architecture_overview.md`
-- `docs/features/posts.md`
-- `docs/features/settings.md`
-- `lib/features/posts/`
-- `lib/features/settings/`
-
-學習重點：
-
-- `domain/` 放 domain model
-- `data/` 放 API service 與 repository
-- `presentation/` 放 ViewModel 與 View
-- View 不直接碰 HTTP
-- Repository 是 feature data 的入口
-- Settings feature 如何把 SharedPreferences 偏好設定接回 `MaterialApp`
-
-## Phase 5：測試與品質
-
-閱讀：
-
-- `docs/testing_strategy.md`
-- `test/unit_test.dart`
-- `test/widget_test.dart`
-- `test/features/posts/`
-- `integration_test/app_test.dart`
-- `docs/governance/official_sample_quality_checklist.md`
-
-學習重點：
-
-- Unit test 測 domain/data logic
-- Widget test 測 UI rendering 和 user interaction
-- Integration test 測完整 app 流程
-- Fake repository 如何讓 UI 測試不依賴網路
-
-## Phase 6：CI 與遠端驗證
-
-閱讀：
-
-- `docs/ci_and_environment.md`
-- `.github/workflows/flutter.yml`
-
-學習重點：
-
-- 本機不能安裝 Flutter 時，如何靠 GitHub Actions 驗證
-- `flutter analyze` 和 `flutter test` 在 sample 專案中的角色
-
-## Phase 7：整合回顧與下一步規劃
-
-閱讀：
-
-- `docs/learning_dashboard.md`
-- `docs/common_flutter_pitfalls.md`
-- `docs/governance/official_sample_quality_checklist.md`
-
-學習重點：
-
-- 把每一個主題整理成「問題、文件、程式入口、理解、測試、下一步」。
-- 回頭檢查哪些主題已能獨立說明，哪些還需要再做一次最小練習。
-- 選出下一個要補的 sample，並確認它需要同步更新哪些文件與測試。
+- 解釋 Flutter app 從 `main()` 到 feature 畫面的基本流程。
+- 分辨 Widget、ViewModel、Repository、Service 的責任。
+- 看懂 feature-first 目錄結構。
+- 替簡單 feature 補 repository test、ViewModel test、widget test。
+- 在沒有本機 Flutter SDK 的限制下，知道如何透過 CI 驗證專案。
+- 說出 build、flavor、artifact、app icon、splash 這些發布前概念的用途。

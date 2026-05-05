@@ -144,25 +144,35 @@ class PostListScreen extends ConsumerWidget {
 
 - `lib/services/api_client.dart`：共用 Dio 設定、timeout、headers、interceptors。
 - `lib/features/posts/data/post_api_service.dart`：實際 HTTP request 與 JSON 轉換。
-- `lib/features/posts/data/post_repository.dart`：資料入口，隔離 UI 與 service。
-- `lib/features/posts/presentation/post_list_view_model.dart`：管理 UI state、刷新與本地刪除事件。
+- `lib/features/posts/domain/post_query.dart`：定義搜尋、篩選、分頁查詢條件。
+- `lib/features/posts/data/post_repository.dart`：資料入口，隔離 UI 與 service，並示範本地 filter / pagination。
+- `lib/features/posts/presentation/post_list_state.dart`：描述列表互動狀態。
+- `lib/features/posts/presentation/post_list_view_model.dart`：管理 UI state、debounce、刷新、本地刪除、載入更多與重試事件。
 - `lib/features/posts/presentation/post_list_view.dart`：畫面呈現與事件轉交。
+
+Posts feature 的狀態分成兩層：
+
+- `AsyncValue<PostListState>`：處理第一次載入的 loading / data / error。
+- `PostListState`：處理進入列表後的搜尋字、filter、page、`isRefreshing`、`isLoadingMore`、inline error。
+
+這樣可以避免使用者按「載入更多」時整個畫面突然變成 full-screen loading。
 
 ## 學完你應該能回答
 
 - Dio、Repository、ViewModel、View 各自負責什麼？
 - 為什麼 View 不應該直接呼叫 HTTP client？
 - `AsyncValue.when` 如何強迫你處理 loading、data、error？
+- 搜尋 debounce、filter 和 pagination 分別應該放在哪一層？
 - fake repository 為什麼能讓 widget test 不依賴真實網路？
 
 ## 最小修改練習
 
-1. 在 posts error UI 中調整錯誤文字，讓它更適合一般使用者閱讀。
+1. 在 posts inline error UI 中調整錯誤文字，讓它更適合一般使用者閱讀。
 2. 在 `PostListViewModel` 新增一個本地排序方法，例如依 title 排序。
 3. 在 widget test 中補一個空列表情境，確認 UI 會顯示空狀態。
 
 ## 進階挑戰
 
-1. 替 posts 加入 search/filter/pagination 的完整列表狀態。
+1. 將 posts 的本地 pagination 改成 server-side pagination。
 2. 在 repository 加入簡單記憶體快取，避免重複呼叫 API。
 3. 寫一份學習筆記，從 `PostListView` 往下追到 `ApiClient`，說明資料如何進到畫面。

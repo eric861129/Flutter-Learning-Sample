@@ -75,7 +75,7 @@ Repository 的重點是隔離儲存細節：
 
 ## App Shell 如何套用設定
 
-`lib/main.dart` 的 `MyApp` 是 `ConsumerWidget`，會監聽 `settingsViewModelProvider`。
+`lib/app.dart` 的 `MyApp` 是 `ConsumerWidget`，會監聽 `settingsViewModelProvider`。
 
 ```text
 SettingsView

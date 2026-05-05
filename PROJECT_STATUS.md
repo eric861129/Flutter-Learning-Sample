@@ -17,6 +17,8 @@
 - 將 `StorageService` 改成 `SharedPreferencesAsync` 實作。
 - 將 `ApiClient` 改成可注入 token 與 Dio 的寫法，移除硬編碼假 token。
 - 將 posts 範例整理為 `lib/features/posts/` feature-first 架構，對齊 Flutter 官方架構指南的 Views、ViewModels、Repositories、Services 分層。
+- posts feature 補上 search、filter、pagination、debounce、載入更多與錯誤重試範例。
+- 新增 `docs/project_brief.md`，將專案主題收斂為 Flutter Learning Lab，明確定義七天成果與不做事項。
 - 新增 Profile Form feature，示範 `Form`、`TextFormField`、validator、submit loading state 與 error display。
 - 新增 Settings feature，示範 SharedPreferences、ThemeMode、使用者偏好設定與 app shell state 串接。
 - 新增 integration test 範例。
@@ -30,7 +32,8 @@
 - 新增 `docs/` 知識庫入口、學習路線、範例索引、架構總覽、測試策略、CI 說明、疑難排解與新增範例規範。
 - 新增 `docs/learning_dashboard.md` 查詢式學習儀表板，讓學習者能快速找到「想學什麼、該看哪裡、下一步去哪」。
 - 新增七天學習計畫與查詢式學習儀表板，支援從基礎到進階逐步回顧。
-- 新增 `docs/7_day_flutter_learning_plan.md`，規劃七天每日一小時的 Flutter 學習入口。
+- 重整 `docs/7_day_flutter_learning_plan.md`，改為每日閱讀、對照檔案、實作任務、完成標準與常見錯誤。
+- `docs/architecture_overview.md` 補上 Mermaid app 啟動流程、feature-first 資料流與 posts 狀態流。
 - 新增 `docs/common_flutter_pitfalls.md`，整理學習過程常見難題與雷點。
 - 新增 `docs/lessons/WIDGET_MENTAL_MODEL.md`，說明 Everything is a Widget、Widget tree、StatelessWidget 與 StatefulWidget。
 - 補齊每篇 lesson / feature walkthrough 的「學完你應該能回答」、「最小修改練習」、「進階挑戰」。

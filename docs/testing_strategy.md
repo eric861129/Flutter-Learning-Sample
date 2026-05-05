@@ -73,6 +73,11 @@ class FakePostRepository implements PostRepository {
   Future<List<Post>> fetchPosts() async {
     return posts;
   }
+
+  @override
+  Future<PostPage> fetchPostPage(PostQuery query) async {
+    return PostPage(items: posts, hasMore: false);
+  }
 }
 ```
 

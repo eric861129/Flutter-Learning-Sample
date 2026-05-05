@@ -28,6 +28,7 @@ Flutter-Learning-Sample/
     core/
       router.dart
       theme.dart
+    app.dart
     features/
       posts/
         data/
@@ -35,7 +36,9 @@ Flutter-Learning-Sample/
           post_repository.dart
         domain/
           post.dart
+          post_query.dart
         presentation/
+          post_list_state.dart
           post_list_view.dart
           post_list_view_model.dart
       profile_form/
@@ -85,6 +88,47 @@ dev_dependencies:
 
 ## Data Flow
 
+App 啟動流程：
+
+```mermaid
+flowchart TD
+  Main["main.dart\n啟動 Flutter app"] --> Scope["ProviderScope\n讓 Riverpod 可以在整個 app 使用"]
+  Scope --> App["app.dart / MyApp\n組裝 MaterialApp.router"]
+  App --> Router["core/router.dart\n定義 route"]
+  App --> Theme["core/theme.dart\n定義亮色/深色主題"]
+  Router --> Home["HomePage\n學習入口"]
+  Home --> Posts["Posts Feature"]
+  Home --> Form["Profile Form Feature"]
+  Home --> Settings["Settings Feature"]
+```
+
+feature-first 資料流：
+
+```mermaid
+flowchart LR
+  View["View\n畫面與使用者操作"] --> ViewModel["ViewModel\n管理 UI state"]
+  ViewModel --> Repository["Repository\n資料入口"]
+  Repository --> Service["Service\nAPI 或本地儲存"]
+  Service --> External["外部來源\nHTTP / SharedPreferences"]
+  Repository --> Fake["Fake Repository\n測試替身"]
+  Fake -. "widget test / ViewModel test" .-> ViewModel
+```
+
+Posts 搜尋、篩選、分頁狀態流：
+
+```mermaid
+flowchart TD
+  Input["使用者輸入搜尋字"] --> Debounce["ViewModel debounce\n等使用者停一下再查"]
+  Filter["使用者切換 filter"] --> Query["PostQuery\nsearchTerm + filter + page"]
+  Debounce --> Query
+  Query --> Repo["PostRepository.fetchPostPage"]
+  Repo --> Page["PostPage\nitems + hasMore"]
+  Page --> State["PostListState\nposts + isLoadingMore + error"]
+  State --> UI["PostListView\n搜尋欄、FilterChip、列表、載入更多"]
+```
+
+文字版資料流：
+
 ```text
 PostListView
   -> PostListViewModel
@@ -120,8 +164,9 @@ ProfileFormView
 ```text
 JSON
   -> Post domain model
-  -> AsyncValue<List<Post>>
-  -> PostListView renders loading/data/error
+  -> PostPage
+  -> AsyncValue<PostListState>
+  -> PostListView renders search/filter/list/pagination/error
 ```
 
 ## 為什麼 posts 使用 feature-first
