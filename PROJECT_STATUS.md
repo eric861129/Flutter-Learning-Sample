@@ -29,7 +29,7 @@
 - posts 測試集中在 `test/features/posts/`，和 feature 目錄對齊。
 - 新增 `docs/` 知識庫入口、學習路線、範例索引、架構總覽、測試策略、CI 說明、疑難排解與新增範例規範。
 - 新增 `docs/learning_dashboard.md` 查詢式學習儀表板，讓學習者能快速找到「想學什麼、該看哪裡、下一步去哪」。
-- 新增 `docs/blog_learning_journal.md`，支援未來把 Flutter 學習過程整理成 Blog 系列文章。
+- 新增七天學習計畫與查詢式學習儀表板，支援從基礎到進階逐步回顧。
 - 新增 `docs/7_day_flutter_learning_plan.md`，規劃七天每日一小時的 Flutter 學習入口。
 - 新增 `docs/common_flutter_pitfalls.md`，整理學習過程常見難題與雷點。
 - 新增 `docs/lessons/WIDGET_MENTAL_MODEL.md`，說明 Everything is a Widget、Widget tree、StatelessWidget 與 StatefulWidget。
@@ -55,4 +55,3 @@ flutter run
 
 - 等 CI 第一次跑完後，依 analyzer/test 結果修正剩餘問題。
 - 補 `assets/` 與 app icon/splash 設定範例。
-- Blog 文章開始發布後，在 README 增加文章索引與對應學習章節。

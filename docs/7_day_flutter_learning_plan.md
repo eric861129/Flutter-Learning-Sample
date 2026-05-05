@@ -10,7 +10,7 @@
 2. 打開對應程式碼，只追一條主線。
 3. 回答章末「學完你應該能回答」。
 4. 做一題「最小修改練習」。
-5. 用 [blog_learning_journal.md](blog_learning_journal.md) 記錄今天學到什麼。
+5. 在自己的學習筆記中記錄今天學到什麼、卡在哪裡、下一次要驗證什麼。
 
 ## 我的學習地圖：從語法到文件
 
@@ -26,7 +26,7 @@ Flutter 使用的是 Dart。即使你有 C# 和 JavaScript 的背景，Dart 的�
 
 ### 3. AI 輔助文件：我的專屬助教
 
-本專案會把程式碼、架構文件、繁體中文註解、練習題與常見雷點放在一起。你可以把 AI 當成 24 小時在線的助教，用它來解釋每一段程式碼的設計意圖，並把學習過程整理成 Blog。
+本專案會把程式碼、架構文件、繁體中文註解、練習題與常見雷點放在一起。你可以把 AI 當成 24 小時在線的助教，用它來解釋每一段程式碼的設計意圖，並協助你把理解整理成可回顧的學習筆記。
 
 ## Day 1：Dart 基礎與 Null Safety
 
@@ -212,15 +212,15 @@ Flutter 使用的是 Dart。即使你有 C# 和 JavaScript 的背景，Dart 的�
 
 - 只測 happy path，不測 loading / error / empty state。
 
-## Day 7：整合複習、Blog 輸出與下一步
+## Day 7：整合複習、品質驗收與下一步
 
-目標：把前六天學到的東西串成自己的 Flutter 學習地圖。
+目標：把前六天學到的東西串成自己的 Flutter 學習地圖，並用專案文件與測試結構做一次整體驗收。
 
 閱讀：
 
 - [learning_dashboard.md](learning_dashboard.md)
-- [blog_learning_journal.md](blog_learning_journal.md)
 - [common_flutter_pitfalls.md](common_flutter_pitfalls.md)
+- [governance/official_sample_quality_checklist.md](governance/official_sample_quality_checklist.md)
 
 對照程式碼：
 
@@ -233,10 +233,11 @@ Flutter 使用的是 Dart。即使你有 C# 和 JavaScript 的背景，Dart 的�
 - 一個 Flutter app 從入口到 feature 通常怎麼分層？
 - 什麼情境要抽 Repository / ViewModel？
 - 你現在最想補的下一個 feature 是什麼？
+- 這個 repo 還有哪些地方需要靠 Flutter SDK 或 CI 驗證？
 
 最小練習：
 
-- 用 Blog 模板寫一篇「我用這個 repo 學 Flutter 的第一週」。
+- 用 `learning_dashboard.md` 回查七天內容，列出三個你已經理解的主題、三個還要補強的主題，以及下一個想實作的 sample。
 
 常見雷點：
 

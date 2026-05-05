@@ -80,4 +80,4 @@ class SecureStorageHelper {
 
 1. 新增「重設所有偏好設定」功能。
 2. 設計一個 `SecureStorageService` 介面，說明它和 `StorageService` 的差別。
-3. 寫一篇 Blog，整理 Flutter 常見本地儲存方案的選擇時機。
+3. 寫一份學習筆記，整理 Flutter 常見本地儲存方案的選擇時機。

@@ -19,7 +19,6 @@
 | 測試 | [testing_strategy.md](testing_strategy.md) | unit、widget、integration test 策略 |
 | 環境 | [ci_and_environment.md](ci_and_environment.md) | 本機無 Flutter 時的 CI 驗證方式 |
 | 擴充 | [adding_new_samples.md](adding_new_samples.md) | 新增範例規範 |
-| 分享 | [blog_learning_journal.md](blog_learning_journal.md) | Blog 學習紀錄模板與文章順序 |
 | 治理 | [governance/official_sample_quality_checklist.md](governance/official_sample_quality_checklist.md) | 官方等級 sample 檢查表 |
 | 參考 | [glossary.md](glossary.md) | 術語表 |
 | 參考 | [common_flutter_pitfalls.md](common_flutter_pitfalls.md) | 常見難題與雷點 |
@@ -50,13 +49,14 @@
 3. 對應的 `lib/` 程式碼
 4. 對應的 `test/` 測試
 
-### 3. 我要寫 Blog 分享學習過程
+### 3. 我要檢查七天學習成果
 
 先看：
 
 1. [learning_dashboard.md](learning_dashboard.md)
-2. [blog_learning_journal.md](blog_learning_journal.md)
-3. 對應主題的 lesson、feature walkthrough 與測試
+2. [7_day_flutter_learning_plan.md](7_day_flutter_learning_plan.md)
+3. [governance/official_sample_quality_checklist.md](governance/official_sample_quality_checklist.md)
+4. 對應主題的 lesson、feature walkthrough 與測試
 
 ### 4. 我要維護或擴充這個 repo
 

@@ -127,15 +127,16 @@
 - 本機不能安裝 Flutter 時，如何靠 GitHub Actions 驗證
 - `flutter analyze` 和 `flutter test` 在 sample 專案中的角色
 
-## Phase 7：整理成 Blog 筆記
+## Phase 7：整合回顧與下一步規劃
 
 閱讀：
 
-- `docs/blog_learning_journal.md`
 - `docs/learning_dashboard.md`
+- `docs/common_flutter_pitfalls.md`
+- `docs/governance/official_sample_quality_checklist.md`
 
 學習重點：
 
 - 把每一個主題整理成「問題、文件、程式入口、理解、測試、下一步」。
-- 讓 Blog 文章不是單純筆記，而是可以帶讀者一起走過這個 repo。
-- 每篇文章最後都要留下下一個學習主題，形成連續學習路線。
+- 回頭檢查哪些主題已能獨立說明，哪些還需要再做一次最小練習。
+- 選出下一個要補的 sample，並確認它需要同步更新哪些文件與測試。

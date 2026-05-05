@@ -172,4 +172,4 @@ class CounterWidget extends StatefulWidget {
 
 1. 把 `lib/views/ui_kit_view.dart` 中任一區塊拆成獨立小 Widget。
 2. 替拆出的 Widget 補一個 widget test。
-3. 寫一篇 Blog，解釋你如何從「巢狀括號」看懂 Flutter Widget tree。
+3. 寫一份學習筆記，解釋你如何從「巢狀括號」看懂 Flutter Widget tree。

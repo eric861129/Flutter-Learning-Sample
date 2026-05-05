@@ -46,7 +46,6 @@ Flutter-Learning-Sample/
 - [docs/7_day_flutter_learning_plan.md](./docs/7_day_flutter_learning_plan.md)
 - [docs/learning_dashboard.md](./docs/learning_dashboard.md)
 - [docs/common_flutter_pitfalls.md](./docs/common_flutter_pitfalls.md)
-- [docs/blog_learning_journal.md](./docs/blog_learning_journal.md)
 
 ---
 
@@ -191,7 +190,6 @@ dart run dart_foundation/01_variables_null_safety.dart
 | [docs/features/posts.md](./docs/features/posts.md) | posts feature walkthrough |
 | [docs/features/settings.md](./docs/features/settings.md) | settings feature walkthrough |
 | [docs/testing_strategy.md](./docs/testing_strategy.md) | 測試策略 |
-| [docs/blog_learning_journal.md](./docs/blog_learning_journal.md) | Blog 學習紀錄模板 |
 | [docs/common_flutter_pitfalls.md](./docs/common_flutter_pitfalls.md) | 常見難題與雷點 |
 | [docs/lessons/README.md](./docs/lessons/README.md) | 課程教材入口 |
 | [docs/governance/official_sample_quality_checklist.md](./docs/governance/official_sample_quality_checklist.md) | 官方等級範例檢查表 |

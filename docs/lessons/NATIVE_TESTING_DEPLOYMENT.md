@@ -136,4 +136,4 @@ testWidgets('測試按鈕點擊後文字是否改變', (WidgetTester tester) asy
 
 1. 設計 dev / staging / prod 的 build command 表。
 2. 替 GitHub Actions 增加一個 build artifact 範例，例如 web build。
-3. 寫一篇 Blog，說明「學習專案」和「可上架專案」在品質檢查上的差異。
+3. 寫一份學習筆記，說明「學習專案」和「可上架專案」在品質檢查上的差異。

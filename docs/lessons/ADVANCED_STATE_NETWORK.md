@@ -165,4 +165,4 @@ class PostListScreen extends ConsumerWidget {
 
 1. 替 posts 加入 search/filter/pagination 的完整列表狀態。
 2. 在 repository 加入簡單記憶體快取，避免重複呼叫 API。
-3. 寫一篇 Blog，從 `PostListView` 往下追到 `ApiClient`，說明資料如何進到畫面。
+3. 寫一份學習筆記，從 `PostListView` 往下追到 `ApiClient`，說明資料如何進到畫面。

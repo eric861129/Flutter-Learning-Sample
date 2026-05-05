@@ -120,4 +120,4 @@ class ResponsiveWidget extends StatelessWidget {
 
 1. 做一個同時支援手機與平板的 dashboard layout。
 2. 在不寫死高度的前提下，讓卡片中的長文字能自然換行。
-3. 寫一篇 Blog 筆記，解釋你第一次真正理解 Flutter layout constraints 的瞬間。
+3. 寫一份學習筆記，解釋你第一次真正理解 Flutter layout constraints 的瞬間。

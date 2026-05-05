@@ -21,8 +21,8 @@
 | 本地儲存與偏好設定 | [features/settings.md](features/settings.md) | `lib/features/settings/` | State + Network |
 | API 與狀態管理 | [lessons/ADVANCED_STATE_NETWORK.md](lessons/ADVANCED_STATE_NETWORK.md) | `lib/features/posts/` | Testing |
 | 測試 | [testing_strategy.md](testing_strategy.md) | `test/` | CI |
-| 無 Flutter 本機環境驗證 | [ci_and_environment.md](ci_and_environment.md) | `.github/workflows/flutter.yml` | Blog 紀錄 |
-| Blog 分享學習過程 | [blog_learning_journal.md](blog_learning_journal.md) | `docs/` 與 `lib/` | 新增自己的 sample |
+| 無 Flutter 本機環境驗證 | [ci_and_environment.md](ci_and_environment.md) | `.github/workflows/flutter.yml` | 專案驗收 |
+| 專案完成度檢查 | [governance/official_sample_quality_checklist.md](governance/official_sample_quality_checklist.md) | `docs/` 與 `lib/` | 新增自己的 sample |
 | 常見雷點排查 | [common_flutter_pitfalls.md](common_flutter_pitfalls.md) | 對應 lessons / features | 回到學習計畫 |
 
 ## 常見問題導向
@@ -47,23 +47,22 @@
 4. **回答檢查題**：用章末「學完你應該能回答」確認理解。
 5. **做最小修改**：完成章末「最小修改練習」，讓知識變成手感。
 6. **看測試**：理解這個主題如何被驗證。
-7. **寫筆記**：用 [blog_learning_journal.md](blog_learning_journal.md) 的格式記錄。
-8. **挑戰進階題**：挑一題「進階挑戰」作為 Blog 或下一輪功能素材。
+7. **寫筆記**：用自己的筆記記錄「我學到什麼、我改了什麼、還卡在哪裡」。
+8. **挑戰進階題**：挑一題「進階挑戰」作為下一輪功能素材。
 
-## 建議 Blog 系列主題
+## 七天回顧檢查表
 
-| 篇數 | 主題 | 對應文件 |
+| 項目 | 你要確認 | 對應文件 |
 | --- | --- | --- |
-| 1 | 為什麼我要建立 Flutter 學習型 sample repo | [README.md](../README.md) |
-| 2 | Dart 基礎與 Flutter 的關係 | [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) |
-| 3 | 概念突破：Everything is a Widget | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) |
-| 4 | Flutter Widget 與 Layout 的第一個理解關卡 | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) |
-| 5 | Form、validator 與 submit error 怎麼設計 | [features/profile_form.md](features/profile_form.md) |
-| 6 | 一個 app 如何啟動：main、router、theme | [architecture_overview.md](architecture_overview.md) |
-| 7 | feature-first 是什麼：用 posts 範例理解分層 | [features/posts.md](features/posts.md) |
-| 8 | SharedPreferences 與 ThemeMode：做出設定頁 | [features/settings.md](features/settings.md) |
-| 9 | Riverpod、Repository、Fake Repository 怎麼一起測 | [testing_strategy.md](testing_strategy.md) |
-| 10 | 沒有 Flutter 本機環境時，怎麼靠 CI 學習 | [ci_and_environment.md](ci_and_environment.md) |
+| 專案入口 | 能不能從 README 找到七天學習路線 | [README.md](../README.md) |
+| 語法基礎 | 能不能說明 Dart 與 Flutter 的關係 | [lessons/DART_BASICS_GUIDE.md](lessons/DART_BASICS_GUIDE.md) |
+| Widget 心智模型 | 能不能用自己的話解釋 Everything is a Widget | [lessons/WIDGET_MENTAL_MODEL.md](lessons/WIDGET_MENTAL_MODEL.md) |
+| UI 與表單 | 能不能分清楚 layout、元件、表單驗證責任 | [lessons/FLUTTER_UI_GUIDE.md](lessons/FLUTTER_UI_GUIDE.md) |
+| App Shell | 能不能追出 main、router、theme 的關係 | [architecture_overview.md](architecture_overview.md) |
+| Feature 分層 | 能不能從 View 追到 Repository | [features/posts.md](features/posts.md) |
+| 本地偏好 | 能不能說明 Settings 如何影響 app theme | [features/settings.md](features/settings.md) |
+| 測試策略 | 能不能分清楚 unit、ViewModel、widget test | [testing_strategy.md](testing_strategy.md) |
+| CI 驗證 | 能不能說明本機無 Flutter 時如何靠 CI 補驗證 | [ci_and_environment.md](ci_and_environment.md) |
 
 ## 下一輪優化方向
 
@@ -72,4 +71,4 @@
 - `docs/features/` 增加更多 feature walkthrough，例如 todo、search、auth mock。
 - 每個新增 lesson / feature 都維持章末三段式檢查點。
 - CI 通過後補上徽章與實際 analyzer/test 狀態。
-- Blog 發布後在 README 加上「學習紀錄文章索引」。
+- CI 通過後補上徽章與實際 analyzer/test 狀態。
